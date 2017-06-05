@@ -1,1 +1,57 @@
-/* Empty. Add your own CSS if you like */
+.home {
+    background-color: #042C41;
+}
+.home h1,
+.splash h1 {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 200;
+    margin: 10px 0 0 0;
+}
+.home h2 {
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-weight: 200;
+    margin: 5px 0 0 0;
+}
+.spinner, .splash {
+    text-align: center;
+}
+.spinner {
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+.spinner {
+    stroke: #fff !important;
+    fill: #fff !important;
+}
+.spinner-splash {
+    position: absolute;
+}
+.splash-screen {
+    position: absolute;
+    bottom: 100px;
+    color: #fff;
+}
+.splash h1 {
+    color: #4a4949;
+    font-size: 2.8em;
+    font-weight: 100;
+    margin: 1em 0 0 0;
+}
+.splash h2 {
+    color: #4a4949;
+    font-size: 2em;
+    font-weight: 100;
+    margin: .5em 0 .7em 0;
+}
+.content-padding-extra {
+    padding-left: 2.2em;
+    padding-right: 2.2em;
+}
+.footer-buttons {
+    margin-top: 15em;
+}

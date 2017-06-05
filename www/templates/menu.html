@@ -13,22 +13,33 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
     <ion-content>
+      <div class="content-padding-extra splash">
+        <div class="logo-color"></div>
+        <h1 ng-bind="nome"></h1>
+        <h2 ng-bind="cidade"></h2>
+      </div>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item menu-close href="#/app/cartorio">
+          Cartório
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/calculos">
+          Cálculos
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close href="#/app/historico">
+          Histórico
         </ion-item>
         <ion-item menu-close href="#/app/playlists">
-          Playlists
+          Convide amigos
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists">
+          Ajuda e FAQ
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists">
+          Termos e Privacidade
+        </ion-item>
+        <ion-item menu-close ng-click="logout()">
+          Sair
         </ion-item>
       </ion-list>
     </ion-content>

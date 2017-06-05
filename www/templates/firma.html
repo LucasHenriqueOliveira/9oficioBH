@@ -1,0 +1,24 @@
+<ion-view view-title="Reconhecimento de Firma">
+    <ion-content class="has-header">
+        <div class="padding">
+            <form name="firmaForm" ng-if="!pesquisaFirma" novalidate>
+                <div class="list">
+                    <label class="item item-input">
+                        <input ng-model="message.name" name="fieldName" type="text" placeholder="Nome" required ng-minlength="2" ng-maxlength="70">
+                    </label>
+                    <label class="item item-input">
+                        <input ng-model="message.cpf" name="fieldEmail" type="text" placeholder="CPF" required ng-maxlength="50">
+                    </label>
+                </div>
+
+                <div class="row">
+                    <button ng-click="submit()" class="button button-outline button-balanced button-rounded button-block"> Enviar </button>
+                </div>
+            </form>
+            <div ng-if="pesquisaFirma">
+                <p>Você possui firma registrada.</p>
+                <button ng-click="goBack()" class="button button-outline button-balanced button-rounded button-block"> Cadastrar novo documento </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

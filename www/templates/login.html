@@ -1,25 +1,68 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
+<ion-view view-title="Login" hide-nav-bar="false">
+
+  <ion-nav-bar class="bar-light bar-transparent">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-android-arrow-back"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content class="padding">
+    <div class="content-padding-extra">
+      <form name="login" novalidate>
+        <label class="item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="loginData.email" required>
         </label>
-        <label class="item item-input">
+
+        <label class=" item-input">
           <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <input type="password" ng-model="loginData.password" required>
         </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
+
+        <div class="right"><a href ng-click="openModal()" class="link-underline">Esqueci a senha</a></div>
+
+        <button ng-click="loginCartorio()" class="button button-block button-positive button-rounded button_login">Log In</button>
+
+        <h4 class="divider_login">Ou</h4>
+
+        <button ng-click="loginFacebook()" class="button button-block button-outline button-positive button-rounded">
+          <i class="icon ion-social-facebook icon_social"></i> Use Facebook
+        </button>
+
+        <button ng-click="loginGoogle()" class="button button-block button-outline button-assertive button-rounded">
+          <i class="icon ion-social-google icon_social"></i> Use Google
+        </button>
+      </form>
+    </div>
   </ion-content>
-</ion-modal-view>
+
+  <!-- START modal -->
+  <script id="forgot-password.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar bar-header bar-light bar-transparent">
+        <h1 class="title">Esqueceu a senha</h1>
+        <button class="button button-clear button-primary" ng-click="closeModal()">X</button>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <div class="content-padding-extra">
+
+          <div class="top-centered">
+            <i class="icon-sad-girl"></i>
+            <p>Aww...forgot your password? Just give me your email and I will get you a <br><b>shiny new one!</b></p>
+            <br><br>
+          </div>
+
+          <form name="forgot">
+            <label class="item-input">
+              <span class="input-label">Email</span>
+              <input type="email" ng-model="email" required />
+            </label>
+
+            <button ng-click="forgotPassword(email)" class="button button-block button-positive button-rounded button_login" ng-disabled="forgot.$invalid">Shiny new one, please!</button>
+          </form>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+  <!-- END modal -->
+</ion-view>
