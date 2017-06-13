@@ -1,19 +1,90 @@
-<ion-view view-title="Cartório">
-    <ion-content class="padding">
-        <div>
-            <a href="#/app/cartorio/certidao" class="button button-outline button-balanced button-rounded button-block">
-                Certidão e Traslados
-            </a>
-            <a href="#/app/cartorio/procuracao" class="button button-outline button-balanced button-rounded button-block">
-                Procuração
-            </a>
-            <a href="#/app/cartorio/firma" class="button button-outline button-balanced button-rounded button-block">
-                Reconhecimento de Firma
-            </a>
-            <a href="#/app/cartorio/testamento" class="button button-outline button-balanced button-rounded button-block">
-                Testamento
-            </a>
-
-        </div>
-    </ion-content>
+<ion-view hide-nav-bar="true">
+  <ion-content class="padding" has-header="false">
+    <div class="registry-header">
+      <div class="pull-left menu-button">
+        <button class="button button-icon ion-android-more-vertical" menu-toggle="left">
+        </button>
+      </div>
+      <div class="pull-left">
+        <h1>Olá Lucas</h1>
+        <h4>em que podemos ajudar?</h4>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="registry-wrapper">
+      <h4>Novos documentos</h4>
+      <ks-swiper-container initial-slide="0" speed="2000" pagination-is-active="true" loop="false" show-nav-buttons="false" slides-per-view="1.5" space-between="20" pagination-clickable="false">
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h3>Certidão e Traslados</h3>
+              <span><span class="icon ion-plus-round"></span>Criar novo</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h3>Procuração</h3>
+              <span><span class="icon ion-plus-round"></span>Criar novo</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h3>Reconhecimento de Firma</h3>
+              <span><span class="icon ion-plus-round"></span>Criar novo</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h3>Testamento</h3>
+              <span><span class="icon ion-plus-round"></span>Criar novo</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+      <h4>Cálculos</h4>
+      <ks-swiper-container initial-slide="0" speed="2000" pagination-is-active="true" loop="false" show-nav-buttons="false" slides-per-view="1.5" space-between="20" pagination-clickable="false">
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card calculate">
+            <div class="item item-text-wrap">
+              <h3>Cálculo de ITBI</h3>
+              <span><span class="icon ion-plus-round"></span>Calcular</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+      <h4>Documentos recentes</h4>
+      <ks-swiper-container initial-slide="0" speed="2000" pagination-is-active="true" loop="false" show-nav-buttons="false" slides-per-view="1.5" space-between="20" pagination-clickable="false">
+        <ks-swiper-slide class="swiper-slide">
+          <div class="card documents">
+            <div class="item item-text-wrap">
+              <h3>Reconhecimento de Firma</h3>
+              <span>Agendado</span>
+              <span class="time"><i class="icon ion-calendar"></i>14/04/17</span>
+              <span class="time"><i class="icon ion-clock"></i>13h00m</span>
+            </div>
+          </div>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+    </div>
+    <!-- <div>
+        <a href="#/app/cartorio/certidao" class="button button-outline button-balanced button-rounded button-block">
+            Certidão e Traslados
+        </a>
+        <a href="#/app/cartorio/procuracao" class="button button-outline button-balanced button-rounded button-block">
+            Procuração
+        </a>
+        <a href="#/app/cartorio/firma" class="button button-outline button-balanced button-rounded button-block">
+            Reconhecimento de Firma
+        </a>
+        <a href="#/app/cartorio/testamento" class="button button-outline button-balanced button-rounded button-block">
+            Testamento
+        </a>
+    </div> -->
+  </ion-content>
 </ion-view>

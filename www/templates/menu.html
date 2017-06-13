@@ -3,45 +3,28 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
-
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
     <ion-content>
-      <div class="content-padding-extra splash">
-        <div class="logo-color"></div>
-        <h1 ng-bind="nome"></h1>
-        <h2 ng-bind="cidade"></h2>
-      </div>
+    </ion-content>
+    <ion-footer-bar>
       <ion-list>
-        <ion-item menu-close href="#/app/cartorio">
-          Cartório
-        </ion-item>
-        <ion-item menu-close href="#/app/calculos">
-          Cálculos
-        </ion-item>
-        <ion-item menu-close href="#/app/historico">
-          Histórico
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item nav-clear menu-close href="#/app/playlists">
           Convide amigos
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item nav-clear menu-close href="#/app/playlists">
           Ajuda e FAQ
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item nav-clear menu-close href="#/app/playlists">
           Termos e Privacidade
         </ion-item>
-        <ion-item menu-close ng-click="logout()">
+        <ion-item nav-clear menu-close ng-click="logout()">
           Sair
         </ion-item>
-      </ion-list>
-    </ion-content>
+      <ion-list>
+   </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>

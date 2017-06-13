@@ -15,9 +15,16 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$marine: #042C41;
+$ugly-blue: #326D8C;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+@import url('http://fonts.googleapis.com/css?family=Roboto:300,900');
+$font-family-base: "Roboto", sans-serif !default;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
+@import 'registry';
+@import 'sidemenu';

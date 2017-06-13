@@ -5,9 +5,9 @@
     .module('cartorio')
     .controller('CartorioCtrl', CartorioCtrl);
 
-  CartorioCtrl.$inject = ['$scope'];
+  CartorioCtrl.$inject = ['$scope', 'myConfig'];
 
-  function CartorioCtrl($scope) {
-
+  function CartorioCtrl($scope, myConfig) {
+    $scope.user = myConfig.user;
   }
 })();
