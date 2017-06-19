@@ -18,6 +18,7 @@
     };
 
     $scope.goBack = function() {
+      $scope.pesquisaITBI = false;
       $state.go('app.cartorio');
     };
   }

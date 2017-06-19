@@ -45,13 +45,6 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper'])
     controller: 'HomeCtrl'
   })
 
-  .state('splash', {
-    url: '/splash',
-    abstract: false,
-    templateUrl: 'templates/splash.html',
-    controller: 'SplashCtrl'
-  })
-
   .state('login', {
     url: '/login',
     abstract: false,
@@ -64,7 +57,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper'])
     url: '/signup',
     abstract: false,
     templateUrl: 'templates/signup.html',
-    controller: 'SignupCtrl',
+    controller: 'CadastrarCtrl',
     auth: false
   })
 
@@ -154,5 +147,5 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/splash');
+  $urlRouterProvider.otherwise('/home');
 });

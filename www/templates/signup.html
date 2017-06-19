@@ -1,50 +1,70 @@
-<ion-view view-title="Cadastrar" hide-nav-bar="false">
+<ion-view view-title="&nbsp;">
 
-    <ion-nav-bar class="bar-light bar-transparent">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-android-arrow-back"></i>
-        </ion-nav-back-button>
-    </ion-nav-bar>
+  <ion-nav-bar class="bar-royal">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c" style="font-size: 24px; margin-left: 25px;"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
 
-    <ion-content class="padding">
-        <div class="content-padding-extra">
-            <form name="signup" novalidate>
-                <label class="item-input" ng-class="{'has-error': signup.$submitted && signup['signupData.email'].$error}">
-                    <span class="input-label">Email</span>
-                    <input type="email" ng-model="signupData.email" required>
-                </label>
-                <p class="input-item-error" ng-show="signup.$submitted && signup['signupData.email'].$error.invalid"><i class="ion-android-alert"></i>&nbsp;&nbsp;Email is required</p>
+    <ion-content has-bouncing="false">
+      <div class="screen-header content-padding-extra">
+        <h1>Cadastre-se</h1>
+      </div>
+      <div class="content-padding-extra">
+        <form name="signup" novalidate>
+          <label class="item-input input-control">
+            <input type="text" placeholder="Nome">
+          </label>
+          <label class="item-input input-control">
+            <input type="email" placeholder="E-mail">
+          </label>
+          <label class="item-input input-control">
+            <input type="text" placeholder="Telefone">
+          </label>
+          <label class="item-input input-control">
+            <input type="text" placeholder="Cpf">
+          </label>
+          <div class="row">
+            <div class="col-50 margin-negative-left">
+              <label class="item-input input-control">
+                <input type="password" placeholder="Senha">
+              </label>
+            </div>
+            <div class="col-50 margin-left">
+              <label class="item-input input-control">
+                <input type="password" placeholder="Confirmar">
+              </label>
+            </div>
+          </div>
 
-                <label class="item-input" ng-class="{'has-error': signup.$submitted && signup['signupData.cpf'].$error}">
-                    <span class="input-label">CPF</span>
-                    <input type="text" ng-model="signupData.cpf" required>
-                </label>
-                <p class="input-item-error" ng-show="signup.$submitted && signup['signupData.cpf'].$error.invalid"><i class="ion-android-alert"></i>&nbsp;&nbsp;CPF is required</p>
-
-                <label class="item-input" ng-class="{'has-error': signup.$submitted && signup['signupData.password'].$error}">
-                    <span class="input-label">Senha</span>
-                    <input type="password" ng-model="signupData.password" required>
-                </label>
-                <p class="input-item-error" ng-show="signup.$submitted && signup['signupData.confirm'].$error.invalid"><i class="ion-android-alert"></i>&nbsp;&nbsp;Password is required</p>
-
-                <label class="item-input" ng-class="{'has-error': signup.$submitted && (signup['signupData.email'].$error || errors.confirm)}">
-                    <span class="input-label">Confirme</span>
-                    <input type="password" ng-model="signupData.confirm" required>
-                </label>
-                <p class="input-item-error" ng-show="signup.$submitted && (signup['signupData.confirm'].$error.invalid || errors.confirm)"><i class="ion-android-alert"></i>&nbsp;&nbsp;Passwords must match</p>
-
-                <button ng-click="signup()" class="button button-block button-positive button-rounded button_login">Sign Up</button>
-
-                <h4 class="divider_login">Ou</h4>
-
-                <button ng-click="signupFacebook()" class="button button-block button-outline button-positive button-rounded">
-                    <i class="icon ion-social-facebook icon_social"></i> Use Facebook
-                </button>
-
-                <button ng-click="signupGoogle()" class="button button-block button-outline button-assertive button-rounded">
-                    <i class="icon ion-social-google icon_social"></i> Use Google
-                </button>
-            </form>
+          <div class="pull-right clearfix">
+            <button class="button button-outline button-light item-icon-right">
+              Próximo
+            </button>
+          </div>
+        </form>
+        <div class="row padding-top">
+          <div class="col-33">
+            <hr>
+          </div>
+          <div class="col-33 text-center text-uppercase text-divisor">
+            ou
+          </div>
+          <div class="col-33">
+            <hr>
+          </div>
         </div>
+        <div class="social-buttons">
+          <div class="facebook-button text-center">
+            <i class="icon ion-social-facebook"></i> Login com o Facebook
+          </div>
+          <div class="googleplus-button text-center">
+            <i class="icon ion-social-googleplus"></i> Login com o Google
+          </div>
+        </div>
+        <div class="terms text-center">
+          Ao se cadastrar, você concordar com nossos <b>termos de uso</b> e <b>política de privacidade</b>.
+        </div>
+      </div>
     </ion-content>
 </ion-view>

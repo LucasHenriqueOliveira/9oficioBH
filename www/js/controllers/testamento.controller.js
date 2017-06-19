@@ -5,9 +5,9 @@
     .module('cartorio')
     .controller('TestamentoCtrl', TestamentoCtrl);
 
-  TestamentoCtrl.$inject = ['$scope', '$state'];
+  TestamentoCtrl.$inject = ['$scope', '$state', '$ionicPopup'];
 
-  function TestamentoCtrl($scope, $state) {
+  function TestamentoCtrl($scope, $state, $ionicPopup) {
     $scope.title = 'Testamento';
     $scope.casamento = true;
     $scope.agendamentoConfirmado = false;
@@ -17,7 +17,24 @@
     };
 
     $scope.goBack = function() {
+      $scope.agendamentoConfirmado = false;
       $state.go('app.cartorio');
+    };
+
+    $scope.sendFile = function() {
+      var options = {
+         quality : 75
+      };
+
+      navigator.camera.getPicture(options).then(function(imageData) {
+        var imageEncode = "data:image/jpeg;base64," + imageData;
+        var alertPopup = $ionicPopup.alert({
+          title: 'Foto',
+          template: 'Enviada com sucesso.'
+        });
+      }, function(err) {
+        // error
+      });
     };
   }
 })();

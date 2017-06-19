@@ -1,0 +1,69 @@
+.upload {
+  display: block;
+  width: 100%;
+  padding: 22px 16px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  span {
+    display: block;
+
+    &.title {
+      font-weight: 400;
+      font-size: 11pt;
+    }
+
+    &.description {
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 7pt;
+    }
+  }
+
+  .icon {
+    font-size: 38px;
+    margin-right: 15px;
+  }
+
+  &.sending {
+    background: $ugly-blue;
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15);
+    span.title {
+      color: #FFF;
+    }
+    span.description {
+      color: #FFF;
+    }
+    .icon i {
+      color: #FFF;
+    }
+  }
+
+  &.sended {
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15);
+    span.title {
+      color: #414A52;
+    }
+    span.description {
+      color: $ugly-blue;
+    }
+    .icon i {
+      color: #AFBCCB;
+    }
+  }
+
+  &.empty {
+    background: #f7fafd;
+    border: 2px dashed #CED4E2;
+    span.title {
+      color: #A3A8AD;
+    }
+    span.description {
+      color: #CAD3DC;
+    }
+
+    .icon i {
+      color: #A3A8AD;
+    }
+  }
+}

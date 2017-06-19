@@ -1,0 +1,60 @@
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-12 {
+  font-size: 12pt;
+}
+.text-light {
+  color: rgba(#607d8b, .5);
+}
+.border-div {
+  border-right: 1px solid rgba(#607d8b, .5);
+}
+
+a {
+  color: $ugly-blue;
+  text-decoration: none;
+}
+
+.screen-header {
+  background: $marine;
+  padding-top: 0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  h1 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 24pt;
+    small {
+      display: block;
+      font-size: 10pt;
+      margin-top: 10px;
+    }
+  }
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.margin-negative-left {
+  margin-left: -5px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.break {
+  display: block;
+  content: '';
+  height: 40px;
+  width: 100%;
+}

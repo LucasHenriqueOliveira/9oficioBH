@@ -51,7 +51,7 @@
         min-height: 42px;
       }
 
-      span {
+      a, span {
         font-size: 11pt;
         text-transform: uppercase;
         font-weight: 300;
@@ -77,7 +77,7 @@
           background-color: $ugly-blue;
         }
 
-        h3, span {
+        h3, a {
           color: #FFF;
         }
 

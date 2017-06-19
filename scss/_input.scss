@@ -1,0 +1,46 @@
+input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="time"] {
+  font-size: 14pt;
+  border-bottom: 1px solid #ECEEF6;
+}
+
+.item-input.input-control {
+  padding: 10px 0;
+  margin-bottom: 10px;
+
+  input[type="text"], input[type="password"], input[type="email"], input[type="time"], input[type="date"] {
+    padding-bottom: 10px;
+  }
+
+  .input-label {
+    color: #aaa;
+    border-bottom: 1px solid #ECEEF6;
+  }
+}
+
+.button-outline {
+  font-size: 11pt;
+  border-radius: 50px;
+  min-width: 100px;
+
+  &.button-royal {
+    background-color: $marine !important;
+    color: #FFF !important;
+    border: none !important;
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15);
+  }
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $ugly-blue;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.text-divisor {
+  color: $ugly-blue;
+  font-weight: 400;
+  padding-top: 4px;
+}

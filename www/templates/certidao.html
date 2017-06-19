@@ -1,55 +1,32 @@
-<ion-view view-title="Certidão">
-    <ion-content class="has-header">
-        <div class="padding">
-            <form name="faleComigoForm" class="falecomigo" novalidate form-manager ng-if="!certidaoEnviada">
-                <div class="list">
-                    <label class="item item-input item-select">
-                        <div class="input-label">
-                            Tipo de Ato
-                        </div>
-                        <select>
-                            <option>Procuração</option>
-                            <option>Escrituras</option>
-                        </select>
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.name" name="fieldName" type="text" placeholder="Livro" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.ato" name="fieldEmail" type="text" placeholder="Ato" required ng-maxlength="50">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.dados_outorgante" name="fieldSubject" type="text" placeholder="Dados do Outorgante" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.dados_outorgado" name="fieldSubject" type="text" placeholder="Dados do Outorgado" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.pedido_por" name="fieldSubject" type="text" placeholder="Pedido por" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.rg" name="fieldSubject" type="text" placeholder="RG" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.telefone" name="fieldSubject" type="text" placeholder="Telefone" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <input ng-model="message.email" name="fieldSubject" type="email" placeholder="Email" required ng-minlength="2" ng-maxlength="70">
-                    </label>
-                    <label class="item item-input">
-                        <textarea ng-model="message.body" name="fieldBody" placeholder="Mensagem" rows="3" required ng-minlength="2" ng-maxlength="70"></textarea>
-                    </label>
-                </div>
+<ion-view view-title="">
+    <ion-content has-bouncing="false" class="has-header">
+      <div class="screen-header content-padding-extra">
+        <h1>Certidão e traslado</h1>
+      </div>
+      <div class="content-padding-extra">
+        <form name="signup" ng-if="!certidaoEnviada" novalidate>
+          <label class="item-input input-control">
+            <span class="input-label" ng-if="!date">Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;/</span>
+            <input type="date" ng-model="date">
+          </label>
+          <label class="item-input input-control">
+            <span class="input-label" ng-if="!time">Hora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+            <input type="time" ng-model="time">
+          </label>
 
-                <div class="row">
-                    <button ng-click="submit()" class="button button-outline button-balanced button-rounded button-block"> Enviar </button>
-                </div>
-            </form>
-            <div ng-if="certidaoEnviada">
-                <p>Os seus dados foram enviados.</p>
-                <p>Em breve entraremos em contato.</p>
-                <button ng-click="goBack()" class="button button-outline button-balanced button-rounded button-block"> Cadastrar novo documento </button>
-            </div>
+          <div class="pull-right clearfix">
+            <button ng-click="submit()" class="button button-outline button-light item-icon-right">
+              Enviar
+            </button>
+          </div>
+        </form>
+        <div ng-if="certidaoEnviada">
+          <p>Dados enviados com sucesso.</p>
+          <div class="pull-right clearfix">
+            <button ng-click="goBack()" class="button button-outline button-royal">
+              Cadastrar novo documento
+            </button>
+          </div>
         </div>
     </ion-content>
 </ion-view>

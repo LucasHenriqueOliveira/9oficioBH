@@ -1,21 +1,28 @@
-<ion-view view-title="Cálculo de ITBI">
-    <ion-content class="has-header">
-        <div class="padding">
-            <form name="itbiForm" ng-if="!pesquisaITBI" novalidate>
-                <div class="list">
-                    <label class="item item-input">
-                        <input ng-model="valor_imovel" type="text" placeholder="Informe o valor venal do Imóvel" required>
-                    </label>
-                </div>
+<ion-view view-title="">
+  <ion-content has-bouncing="false" class="has-header">
+    <div class="screen-header content-padding-extra">
+      <h1>Cálculo de ITBI</h1>
+    </div>
+    <div class="content-padding-extra">
+        <form name="itbiForm" ng-if="!pesquisaITBI" novalidate>
+          <label class="item-input input-control">
+            <input ng-model="valor_imovel" type="text" placeholder="Valor venal do Imóvel" required>
+          </label>
 
-                <div class="row">
-                    <button ng-click="submit(valor_imovel)" class="button button-outline button-balanced button-rounded button-block"> Calcular </button>
-                </div>
-            </form>
-            <div ng-if="pesquisaITBI">
-                <p>O valor do ITBI é R${{itbi}}.</p>
-                <button ng-click="goBack()" class="button button-outline button-balanced button-rounded button-block"> Cadastrar novo documento </button>
+          <div class="pull-right clearfix">
+            <button ng-click="submit(valor_imovel)" class="button button-outline button-light">
+              Enviar
+            </button>
+          </div>
+        </form>
+        <div ng-if="pesquisaITBI">
+            <p>O valor do ITBI é R$ {{itbi}}.</p>
+            <div class="pull-right clearfix">
+              <button ng-click="goBack()" class="button button-outline button-royal">
+                Cadastrar novo documento
+              </button>
             </div>
         </div>
-    </ion-content>
+    </div>
+  </ion-content>
 </ion-view>

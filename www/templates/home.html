@@ -1,13 +1,15 @@
 <ion-view view-title="" hide-nav-bar="true" class="">
     <ion-content class="padding home" scroll="false">
-        <div class="content-padding-extra splash-screen">
-            <div class="spinner">
+        <div class="splash-screen">
+          <div class="screen-header">
+            <h1>9º Ofício de Notas
+              <small>Belo Horizonte</small>
+            </h1>
+          </div>
+            <div class="spinner text-center">
                 <span ng-bind="message || 'Carregando'"></span>
                 <ion-spinner class="spinner-splash" icon="dots"></ion-spinner>
             </div>
-
-            <h1 ng-bind="nome"></h1>
-            <h2 ng-bind="cidade"></h2>
         </div>
     </ion-content>
 </ion-view>

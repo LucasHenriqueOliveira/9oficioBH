@@ -1,3 +1,33 @@
-.main-side-menu {
-  background-color: $marine;
+.menu-left {
+  background: $marine;
+
+  .menu-header {
+    background: $marine;
+    padding: 50px 20px 0;
+    margin-bottom: 180px;
+
+    h1 {
+      color: #FFF;
+      font-weight: 300;
+      font-size: 18pt;
+      small {
+        display: block;
+        font-size: 10pt;
+        margin-top: 10px;
+      }
+    }
+  }
+  .list {
+    border: none;
+    .item, .item-content {
+      background: $marine;
+      border: none;
+    }
+
+    a.item-content, .item {
+      color: #FFF;
+      font-size: 13pt;
+      font-weight: 300;
+    }
+  }
 }

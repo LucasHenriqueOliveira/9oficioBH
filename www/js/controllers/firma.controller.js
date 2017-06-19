@@ -15,6 +15,7 @@
     };
 
     $scope.goBack = function() {
+      $scope.pesquisaFirma = false;
       $state.go('app.cartorio');
     };
   }

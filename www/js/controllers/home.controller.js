@@ -12,7 +12,7 @@
     $scope.cidade = myConfig.cidade;
 
     setTimeout(function(){
-      $state.go('splash');
+      $state.go('login');
     }, 3000);
 
     //$scope.message = 'Verificando nova versão';

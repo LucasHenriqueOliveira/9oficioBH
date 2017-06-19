@@ -1,0 +1,37 @@
+.login-header {
+  background: $marine;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+
+  h1 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 24pt;
+    small {
+      display: block;
+      font-size: 10pt;
+      margin-top: 10px;
+    }
+  }
+}
+
+.social-buttons {
+  font-size: 13pt;
+  font-weight: 400;
+  margin-bottom: 20px;
+
+  i.icon {
+    font-size: 20pt;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  .facebook-button {
+    color: $ugly-blue;
+    margin-bottom: 10px;
+  }
+  .googleplus-button {
+    color: #b31111;
+  }
+}

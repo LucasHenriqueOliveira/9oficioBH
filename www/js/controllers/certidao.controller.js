@@ -15,6 +15,7 @@
     };
 
     $scope.goBack = function() {
+      $scope.certidaoEnviada = false;
       $state.go('app.cartorio');
     };
   }

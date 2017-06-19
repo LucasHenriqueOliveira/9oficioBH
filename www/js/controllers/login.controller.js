@@ -21,12 +21,12 @@
       Auth.loginFacebook();
     };
 
-    $ionicModal.fromTemplateUrl('forgot-password.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
+    // $ionicModal.fromTemplateUrl('forgot-password.html', {
+    //   scope: $scope,
+    //   animation: 'slide-in-up'
+    // }).then(function(modal) {
+    //   $scope.modal = modal;
+    // });
 
     $scope.openModal = function() {
       $scope.modal.show();

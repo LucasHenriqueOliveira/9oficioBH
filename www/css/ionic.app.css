@@ -15,7 +15,7 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-@import url("http://fonts.googleapis.com/css?family=Roboto:300,900");
+@import url("http://fonts.googleapis.com/css?family=Roboto:300,400,900");
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -3981,14 +3981,14 @@ a.subdued {
     .bar.bar-energized.bar-footer {
       background-image: linear-gradient(180deg, #e6b500, #e6b500 50%, transparent 50%); }
   .bar.bar-royal {
-    border-color: #6b46e5;
-    background-color: #886aea;
-    background-image: linear-gradient(0deg, #6b46e5, #6b46e5 50%, transparent 50%);
+    border-color: #042C41;
+    background-color: #042C41;
+    background-image: linear-gradient(0deg, #042C41, #042C41 50%, transparent 50%);
     color: #fff; }
     .bar.bar-royal .title {
       color: #fff; }
     .bar.bar-royal.bar-footer {
-      background-image: linear-gradient(180deg, #6b46e5, #6b46e5 50%, transparent 50%); }
+      background-image: linear-gradient(180deg, #042C41, #042C41 50%, transparent 50%); }
   .bar.bar-dark {
     border-color: #111;
     background-color: #444444;
@@ -4238,15 +4238,15 @@ a.subdued {
     background: none; }
 
 .bar-royal .button {
-  border-color: #6b46e5;
-  background-color: #886aea;
+  border-color: #042C41;
+  background-color: #042C41;
   color: #fff; }
   .bar-royal .button:hover {
     color: #fff;
     text-decoration: none; }
   .bar-royal .button.active, .bar-royal .button.activated {
-    border-color: #6b46e5;
-    background-color: #6b46e5; }
+    border-color: #042C41;
+    background-color: #042C41; }
   .bar-royal .button.button-clear {
     border-color: transparent;
     background: none;
@@ -4867,8 +4867,8 @@ a.subdued {
 .tabs-background-royal .tabs,
 .tabs-background-royal > .tabs {
   background-color: #886aea;
-  background-image: linear-gradient(0deg, #6b46e5, #6b46e5 50%, transparent 50%);
-  border-color: #6b46e5; }
+  background-image: linear-gradient(0deg, #042C41, #042C41 50%, transparent 50%);
+  border-color: #042C41; }
 
 .tabs-background-dark .tabs,
 .tabs-background-dark > .tabs {
@@ -9816,6 +9816,57 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.text-uppercase {
+  text-transform: uppercase; }
+
+.text-12 {
+  font-size: 12pt; }
+
+.text-light {
+  color: rgba(96, 125, 139, 0.5); }
+
+.border-div {
+  border-right: 1px solid rgba(96, 125, 139, 0.5); }
+
+a {
+  color: #326D8C;
+  text-decoration: none; }
+
+.screen-header {
+  background: #042C41;
+  padding-top: 0;
+  padding-bottom: 20px;
+  margin-bottom: 20px; }
+  .screen-header h1 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 24pt; }
+    .screen-header h1 small {
+      display: block;
+      font-size: 10pt;
+      margin-top: 10px; }
+
+.margin-left {
+  margin-left: 10px; }
+
+.margin-negative-left {
+  margin-left: -5px; }
+
+.no-padding {
+  padding: 0 !important; }
+
+.break {
+  display: block;
+  content: '';
+  height: 40px;
+  width: 100%; }
+
 .registry-header {
   margin-top: 10px; }
   .registry-header .pull-left {
@@ -9855,13 +9906,13 @@ a.button {
         margin-bottom: 40px;
         color: #042C41;
         min-height: 42px; }
-      .registry-wrapper .swiper-container .card span {
+      .registry-wrapper .swiper-container .card a, .registry-wrapper .swiper-container .card span {
         font-size: 11pt;
         text-transform: uppercase;
         font-weight: 300;
         color: #326D8C;
         padding-top: 2px; }
-        .registry-wrapper .swiper-container .card span span.icon {
+        .registry-wrapper .swiper-container .card a span.icon, .registry-wrapper .swiper-container .card span span.icon {
           color: #FFF;
           background-color: #326D8C;
           font-size: 12px;
@@ -9876,7 +9927,7 @@ a.button {
         background-color: #326D8C; }
         .registry-wrapper .swiper-container .card.calculate .item {
           background-color: #326D8C; }
-        .registry-wrapper .swiper-container .card.calculate h3, .registry-wrapper .swiper-container .card.calculate span {
+        .registry-wrapper .swiper-container .card.calculate h3, .registry-wrapper .swiper-container .card.calculate a {
           color: #FFF; }
         .registry-wrapper .swiper-container .card.calculate span.icon {
           color: #326D8C;
@@ -9906,5 +9957,141 @@ a.button {
   .registry-wrapper h4 {
     color: #B3B3B3; }
 
-.main-side-menu {
-  background-color: #042C41; }
+.menu-left {
+  background: #042C41; }
+  .menu-left .menu-header {
+    background: #042C41;
+    padding: 50px 20px 0;
+    margin-bottom: 180px; }
+    .menu-left .menu-header h1 {
+      color: #FFF;
+      font-weight: 300;
+      font-size: 18pt; }
+      .menu-left .menu-header h1 small {
+        display: block;
+        font-size: 10pt;
+        margin-top: 10px; }
+  .menu-left .list {
+    border: none; }
+    .menu-left .list .item, .menu-left .list .item-content {
+      background: #042C41;
+      border: none; }
+    .menu-left .list a.item-content, .menu-left .list .item {
+      color: #FFF;
+      font-size: 13pt;
+      font-weight: 300; }
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="time"] {
+  font-size: 14pt;
+  border-bottom: 1px solid #ECEEF6; }
+
+.item-input.input-control {
+  padding: 10px 0;
+  margin-bottom: 10px; }
+  .item-input.input-control input[type="text"], .item-input.input-control input[type="password"], .item-input.input-control input[type="email"], .item-input.input-control input[type="time"], .item-input.input-control input[type="date"] {
+    padding-bottom: 10px; }
+  .item-input.input-control .input-label {
+    color: #aaa;
+    border-bottom: 1px solid #ECEEF6; }
+
+.button-outline {
+  font-size: 11pt;
+  border-radius: 50px;
+  min-width: 100px; }
+  .button-outline.button-royal {
+    background-color: #042C41 !important;
+    color: #FFF !important;
+    border: none !important;
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15); }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #326D8C;
+  margin: 1em 0;
+  padding: 0; }
+
+.text-divisor {
+  color: #326D8C;
+  font-weight: 400;
+  padding-top: 4px; }
+
+.login-header {
+  background: #042C41;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 30px; }
+  .login-header h1 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 24pt; }
+    .login-header h1 small {
+      display: block;
+      font-size: 10pt;
+      margin-top: 10px; }
+
+.social-buttons {
+  font-size: 13pt;
+  font-weight: 400;
+  margin-bottom: 20px; }
+  .social-buttons i.icon {
+    font-size: 20pt;
+    vertical-align: middle;
+    margin-right: 8px; }
+  .social-buttons .facebook-button {
+    color: #326D8C;
+    margin-bottom: 10px; }
+  .social-buttons .googleplus-button {
+    color: #b31111; }
+
+.terms {
+  font-size: 10pt;
+  color: #BACFCA;
+  font-weight: 400;
+  margin-bottom: 20px; }
+
+.upload {
+  display: block;
+  width: 100%;
+  padding: 22px 16px;
+  border-radius: 5px;
+  margin-bottom: 20px; }
+  .upload span {
+    display: block; }
+    .upload span.title {
+      font-weight: 400;
+      font-size: 11pt; }
+    .upload span.description {
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 7pt; }
+  .upload .icon {
+    font-size: 38px;
+    margin-right: 15px; }
+  .upload.sending {
+    background: #326D8C;
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15); }
+    .upload.sending span.title {
+      color: #FFF; }
+    .upload.sending span.description {
+      color: #FFF; }
+    .upload.sending .icon i {
+      color: #FFF; }
+  .upload.sended {
+    box-shadow: 0px 8px 18px 0px rgba(51, 58, 69, 0.15); }
+    .upload.sended span.title {
+      color: #414A52; }
+    .upload.sended span.description {
+      color: #326D8C; }
+    .upload.sended .icon i {
+      color: #AFBCCB; }
+  .upload.empty {
+    background: #f7fafd;
+    border: 2px dashed #CED4E2; }
+    .upload.empty span.title {
+      color: #A3A8AD; }
+    .upload.empty span.description {
+      color: #CAD3DC; }
+    .upload.empty .icon i {
+      color: #A3A8AD; }
