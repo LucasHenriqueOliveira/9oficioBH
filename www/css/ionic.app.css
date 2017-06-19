@@ -9992,6 +9992,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
     padding-bottom: 10px; }
   .item-input.input-control .input-label {
     color: #aaa;
+    margin-top: -2px;
     border-bottom: 1px solid #ECEEF6; }
 
 .button-outline {
