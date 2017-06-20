@@ -5,9 +5,9 @@
     .module('cartorio')
     .controller('ProcuracaoCtrl', ProcuracaoCtrl);
 
-  ProcuracaoCtrl.$inject = ['$scope', '$state'];
+  ProcuracaoCtrl.$inject = ['$scope', '$state', '$ionicPopup', '$cordovaCamera'];
 
-  function ProcuracaoCtrl($scope, $state) {
+  function ProcuracaoCtrl($scope, $state, $ionicPopup, $cordovaCamera) {
     $scope.title = 'Procuração';
     $scope.casamento = false;
     $scope.agendamentoConfirmado = false;
@@ -26,7 +26,7 @@
          quality : 75
       };
 
-      navigator.camera.getPicture(options).then(function(imageData) {
+      $cordovaCamera.getPicture(options).then(function(imageData) {
         var imageEncode = "data:image/jpeg;base64," + imageData;
         var alertPopup = $ionicPopup.alert({
           title: 'Foto',
