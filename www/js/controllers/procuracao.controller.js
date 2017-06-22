@@ -57,7 +57,7 @@
         };
 
         $scope.submit = function() {
-            Procuracao.save($scope.certidao, function (res) {
+            Procuracao.save($scope.procuracao, function (res) {
                 $scope.agendamentoConfirmado = true;
             }, function (error) {
                 $cordovaToast.showWithOptions({
