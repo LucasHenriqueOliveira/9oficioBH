@@ -144,6 +144,16 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 }
             })
 
+            .state('app.termos', {
+                url: '/cartorio/termos',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/termos.html',
+                        controller: 'TermosCtrl'
+                    }
+                }
+            })
+
             .state('app.historico', {
                 url: '/historico',
                 views: {
