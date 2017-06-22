@@ -55,3 +55,61 @@
 .footer-buttons {
     margin-top: 15em;
 }
+.item-input.item-select {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.item-input.item-select .input-label {
+    color: #aaa;
+    margin-top: -2px;
+    border-bottom: 1px solid #ECEEF6;
+}
+.item-input.item-select select {
+    font-size: 14pt;
+    border-bottom: 1px solid #ECEEF6;
+    border-radius: 0;
+    color: #326D8C;
+}
+.item-select select {
+    padding: 0 48px 0 130px;
+    max-width: 90%;
+    bottom: 10px;
+}
+.message-success {
+    margin: 30px 0 30px 0;
+    font-size: 14pt;
+}
+input {
+    color: #326D8C !important;
+}
+.item-input.input-control input[type=tel]{
+    padding-bottom: 10px;
+    font-size: 14pt;
+    border-bottom: 1px solid #ECEEF6;
+}
+.itbi {
+    margin-bottom: 0 !important;
+    min-height: 10px !important;
+}
+.registry-wrapper .swiper-container .card.calculate h5 {
+    color: #FFF;
+}
+.registry-wrapper .swiper-container .card h5 {
+    font-size: 8pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: #042C41;
+    min-height: 42px;
+}
+.input-tipo {
+    max-width: 50px !important;
+    width: 20% !important;
+}
+.tipo-procuracao {
+    padding: 0 !important;
+    max-width: 85% !important;
+    font-size: 10pt !important;
+    padding-right: 50px !important;
+    padding-top: 10px !important;
+}

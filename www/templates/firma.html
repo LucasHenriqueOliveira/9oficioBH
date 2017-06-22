@@ -1,33 +1,35 @@
 <ion-view view-title="">
-  <ion-content has-bouncing="false" class="has-header">
-    <div class="screen-header content-padding-extra">
-      <h1>Reconhecimento de Firma</h1>
-    </div>
-    <div class="content-padding-extra">
-      <form name="firmaForm" ng-if="!pesquisaFirma" novalidate>
-        <label class="item-input input-control">
-          <input type="text" placeholder="Nome" ng-model="message.name" required>
-        </label>
-        <label class="item-input input-control">
-          <input type="text" placeholder="Cpf" ng-model="message.cpf" required>
-        </label>
+    <ion-content has-bouncing="false" class="has-header">
+        <div class="screen-header content-padding-extra">
+            <h1>Reconhecimento de Firma</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="formFirma" ng-if="!pesquisaFirma" novalidate>
+                <label class="item-input input-control">
+                    <input type="text" placeholder="Nome" ng-model="firma.nome">
+                </label>
+                <label class="item-input input-control">
+                    <input type="text" placeholder="CPF" ng-model="firma.cpf" ui-br-cpf-mask>
+                </label>
 
-        <div class="pull-right clearfix">
-          <button ng-click="submit()" class="button button-outline button-light item-icon-right">
-            Enviar
-          </button>
+                <div class="pull-right clearfix">
+                    <button ng-click="submit()"
+                            class="button button-outline button-light item-icon-right"
+                            ng-class="{'button-royal': firma.nome || firma.cpf}">
+                        Pesquisar
+                    </button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-    <div ng-if="pesquisaFirma">
-      <div class="content-padding-extra">
-        <p>Você possui firma registrada.</p>
-        <div class="pull-right clearfix">
-          <button ng-click="goBack()" class="button button-outline button-royal">
-            Cadastrar novo documento
-          </button>
+        <div ng-if="pesquisaFirma">
+            <div class="content-padding-extra">
+                <p class="message-success">{{message}}</p>
+                <div class="pull-right clearfix">
+                    <button ng-click="goBack()" class="button button-outline button-royal">
+                        Pesquisar outra firma
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </ion-content>
+    </ion-content>
 </ion-view>

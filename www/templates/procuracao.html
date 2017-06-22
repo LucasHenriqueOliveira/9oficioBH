@@ -1,0 +1,70 @@
+<ion-view view-title="">
+    <ion-content has-bouncing="false" class="has-header">
+        <div class="screen-header content-padding-extra">
+            <h1>Procuração</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="agendamentoForm" ng-if="!agendamentoConfirmado" novalidate class="scheduling-form">
+                <label class="item-input input-control item-select">
+                    <span class="input-label input-tipo">Tipo</span>
+                    <select class="tipo-procuracao" ng-model="procuracao.tipo" ng-change="getDocumentos(procuracao.tipo)" ng-options="tipo_procuracao.nome_procuracao for tipo_procuracao in tipos_procuracao track by tipo_procuracao.tipo_procuracao_id" required>
+                    </select>
+                </label>
+
+                <!--<div class="upload sending clearfix">-->
+                    <!--<div class="icon pull-left">-->
+                        <!--<i class="ion-android-upload"></i>-->
+                    <!--</div>-->
+                    <!--<div class="info pull-left">-->
+                        <!--<span class="title">Identidade</span>-->
+                        <!--<span class="description">Enviando</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="upload sended clearfix">-->
+                    <!--<div class="icon pull-left">-->
+                        <!--<i class="ion-document"></i>-->
+                    <!--</div>-->
+                    <!--<div class="info pull-left">-->
+                        <!--<span class="title">Cpf.JPGE</span>-->
+                        <!--<span class="description">Última modificação: 15 de Maio, 2017</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="upload empty clearfix" ng-repeat="documento in documentos" ng-click="sendFile()">
+                    <div class="icon pull-left">
+                        <i class="ion-social-buffer"></i>
+                    </div>
+                    <div class="info pull-left">
+                        <span class="title">{{documento.nome_documento}}</span>
+                        <span class="description">CLIQUE PARA ENVIAR</span>
+                    </div>
+                </div>
+
+                <div class="pull-right clearfix">
+                    <button ng-click="submit()" class="button button-outline button-light">
+                        Enviar
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="break"></div>
+            </form>
+            <div ng-if="agendamentoConfirmado">
+                <p class="message-success">Dados enviados com sucesso!</p>
+                <div>
+                    O Cartório do {{cartorio.nome}} poderá exigir mais documentos à seu critério e de acordo com a leis vigentes.
+                    <br /><br />
+                    Todos os documentos de bens móveis ou imóveis bem como dos outorgantes deverão ser apresentados em original quando da assinatura.
+                    <br /><br />
+                    Para maiores informações ligue: {{cartorio.telefone}}.
+                    <br /><br />
+                </div>
+                <div class="pull-right clearfix">
+                    <button ng-click="goBack()" class="button button-outline button-royal">
+                        Cadastrar novo documento
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

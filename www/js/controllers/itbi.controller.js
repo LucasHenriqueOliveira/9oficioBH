@@ -5,9 +5,9 @@
     .module('cartorio')
     .controller('ItbiCtrl', ItbiCtrl);
 
-  ItbiCtrl.$inject = ['$scope', '$state'];
+  ItbiCtrl.$inject = ['$scope'];
 
-  function ItbiCtrl($scope, $state) {
+  function ItbiCtrl($scope) {
     $scope.pesquisaITBI = false;
     $scope.itbi = 0;
     $scope.valor_imovel = '';
@@ -19,7 +19,6 @@
 
     $scope.goBack = function() {
       $scope.pesquisaITBI = false;
-      $state.go('app.cartorio');
     };
   }
 })();

@@ -13,8 +13,7 @@
     $scope.forgot = {};
 
     $scope.loginCartorio = function () {
-      $state.go('app.cartorio');
-      //Auth.login($scope.loginData.email, $scope.loginData.password);
+      Auth.login($scope.loginData.email, $scope.loginData.password);
     };
 
     $scope.loginFacebook = function () {

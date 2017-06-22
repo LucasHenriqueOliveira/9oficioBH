@@ -7,18 +7,21 @@
     </div>
 
     <div class="content-padding-extra">
-      <form name="login" novalidate>
+      <form name="formLogin" novalidate>
         <label class="item-input input-control">
-          <input type="email" placeholder="Seu e-mail">
+          <input type="email" ng-model="loginData.email" placeholder="Seu e-mail" required>
         </label>
         <label class="item-input input-control">
-          <input type="password" placeholder="Sua senha">
+          <input type="password" ng-model="loginData.password" placeholder="Sua senha" required>
         </label>
 
         <div class="pull-right clearfix">
-          <a class="button button-outline button-light item-icon-right" href="#/app/cartorio">
+          <button class="button button-outline button-light item-icon-right"
+                  ng-disabled="formLogin.$invalid"
+                  ng-class="{'button-royal': loginData.email && loginData.password}"
+                  ng-click="loginCartorio()">
             Entrar
-          </a>
+          </button>
         </div>
       </form>
       <div class="row padding-top">

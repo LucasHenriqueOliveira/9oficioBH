@@ -1,55 +1,145 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('cartorio')
-    .factory('Auth', Auth);
+    angular
+        .module('cartorio')
+        .factory('Auth', Auth);
 
-  Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$ionicPopup', '$ionicLoading', '$log', 'Facebook'];
+    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook'];
 
-  function Auth($localStorage, App, $state, User, $ionicPopup, $ionicLoading, $log, Facebook) {
+    function Auth($localStorage, App, $state, User, $log, Facebook) {
 
-    return {
+        return {
 
-      signup: function (email, password) {
-        User.signup({email: email, password: password}, function (res) {
-          if (res.error) {
-            $ionicPopup.alert({
-              title: 'Sign Up',
-              template: res.error
-            });
-            return;
-          }
+            signup: function (signupData) {
+                User.signup(signupData, function (res) {
+                    if (res.error) {
+                        $cordovaToast.showWithOptions({
+                            message: res.message,
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFF00',
+                                textSize: 20.5,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                        return;
+                    }
+                    App.token = res.data.token;
+                    $localStorage.set('token', res.data.token);
 
-          App.token = res.token;
-          $localStorage.set('token', res.token);
-          App.user = res;
-          App.clearData();
+                    User.getUser(function (res) {
+                        App.clearData();
+                        App.user = res.data;
+                        $localStorage.setObject('user', App.user);
+                        $state.go('app.cartorio');
 
-          $state.go('app.cartorio');
+                    }, function (error) {
+                        // error
+                        $cordovaToast.showWithOptions({
+                            message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFF00',
+                                textSize: 20.5,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                    });
 
-        }, function (error) {
-          $log.error(error);
-        });
-      },
+                }, function (error) {
+                    $log.error(error);
+                    $cordovaToast.showWithOptions({
+                        message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
+                        duration: 'short',
+                        position: 'center',
+                        styling: {
+                            opacity: 0.75,
+                            backgroundColor: '#FF0000',
+                            textColor: '#FFFF00',
+                            textSize: 20.5,
+                            cornerRadius: 16,
+                            horizontalPadding: 20,
+                            verticalPadding: 16
+                        }
+                    });
+                });
+            },
 
-      login: function (email, password) {
-        User.login({email: email, password: password}, function (res) {
-          App.user = res;
-          App.token = res.token;
-          App.clearData();
-          $localStorage.set('token', res.token);
-          $state.go('app.cartorio');
-        }, function (error) {
-          $ionicPopup.alert({
-            title: '',
-            template: "Email and password incorrect. Try again!"
-          });
-          $ionicLoading.hide();
-        });
-      },
-      signupFacebook: function () {Facebook.auth();},
-      loginFacebook: function () {Facebook.auth();}
-    };
-  }
+            login: function (email, password) {
+                User.login({email: email, password: password}, function (res) {
+                    App.clearData();
+                    App.token = res.data.token;
+                    $localStorage.set('token', res.data.token);
+
+                    User.getUser(function (res) {
+                        App.clearData();
+                        App.user = res.data;
+                        $localStorage.setObject('user', App.user);
+                        $state.go('app.cartorio');
+
+                    }, function (error) {
+                        // error
+                        $cordovaToast.showWithOptions({
+                            message: 'Usuário não encontrado!',
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFF00',
+                                textSize: 20.5,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                    });
+                }, function (error) {
+                    $log.error(error);
+                    $cordovaToast.showWithOptions({
+                        message: 'Usuário não encontrado!',
+                        duration: 'short',
+                        position: 'center',
+                        styling: {
+                            opacity: 0.75,
+                            backgroundColor: '#FF0000',
+                            textColor: '#FFFF00',
+                            textSize: 20.5,
+                            cornerRadius: 16,
+                            horizontalPadding: 20,
+                            verticalPadding: 16
+                        }
+                    });
+                });
+            },
+            signupFacebook: function () {Facebook.auth();},
+            loginFacebook: function () {Facebook.auth();},
+            isAuthenticated: function(){
+                if (!App.user && isEmpty($localStorage.getObject('user'))) {
+                    User.getUser(function (res) {
+                        App.user = res.data;
+                        $localStorage.setObject('user', App.user);
+                    });
+                }
+                return App.user;
+            },
+            isAuthorized: function(){
+                if (!App.token) {
+                    App.token = $localStorage.get('token');
+                }
+                return App.token;
+            }
+        };
+    }
 })();

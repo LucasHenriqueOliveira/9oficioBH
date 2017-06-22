@@ -5,15 +5,21 @@
         .module('cartorio')
         .factory('App', App);
 
-    App.$inject = [];
+    App.$inject = ['$localStorage'];
 
-    function App() {
+    function App($localStorage) {
+
+        function clearData() {
+            $localStorage.destroy('token');
+            $localStorage.destroy('user');
+        }
 
         return {
-            api: 'https://cartorioapp.com/api/',
-            //api: 'http://api.cartorioapp.local:8080/api/', // lucas' computer
+            api: 'https://cartorioapp.herokuapp.com/api/',
+            //api: 'http://localhost:8000/api/', // lucas' computer
             user: false,
-            token: null
+            token: null,
+            clearData: clearData
         };
 
     }

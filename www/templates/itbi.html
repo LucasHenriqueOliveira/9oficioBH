@@ -1,28 +1,30 @@
 <ion-view view-title="">
-  <ion-content has-bouncing="false" class="has-header">
-    <div class="screen-header content-padding-extra">
-      <h1>Cálculo de ITBI</h1>
-    </div>
-    <div class="content-padding-extra">
-        <form name="itbiForm" ng-if="!pesquisaITBI" novalidate>
-          <label class="item-input input-control">
-            <input ng-model="valor_imovel" type="text" placeholder="Valor venal do Imóvel" required>
-          </label>
+    <ion-content has-bouncing="false" class="has-header">
+        <div class="screen-header content-padding-extra">
+            <h1>Cálculo de ITBI</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="formItbi" ng-if="!pesquisaITBI" novalidate>
+                <label class="item-input input-control">
+                    <input ng-model="valor_imovel" type="text" placeholder="Valor Venal do Imóvel" ui-money-mask required>
+                </label>
 
-          <div class="pull-right clearfix">
-            <button ng-click="submit(valor_imovel)" class="button button-outline button-light">
-              Enviar
-            </button>
-          </div>
-        </form>
-        <div ng-if="pesquisaITBI">
-            <p>O valor do ITBI é R$ {{itbi}}.</p>
-            <div class="pull-right clearfix">
-              <button ng-click="goBack()" class="button button-outline button-royal">
-                Cadastrar novo documento
-              </button>
+                <div class="pull-right clearfix">
+                    <button ng-click="submit(valor_imovel)" class="button button-outline button-light"
+                            ng-disabled="formItbi.$invalid"
+                            ng-class="{'button-royal': valor_imovel}">
+                        Calcular
+                    </button>
+                </div>
+            </form>
+            <div ng-if="pesquisaITBI">
+                <p class="message-success">O valor do ITBI é {{itbi | currency}}.</p>
+                <div class="pull-right clearfix">
+                    <button ng-click="goBack()" class="button button-outline button-royal">
+                        Realizar um novo cálculo
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-  </ion-content>
+    </ion-content>
 </ion-view>

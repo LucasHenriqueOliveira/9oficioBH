@@ -1,32 +1,58 @@
 <ion-view view-title="">
     <ion-content has-bouncing="false" class="has-header">
-      <div class="screen-header content-padding-extra">
-        <h1>Certidão e traslado</h1>
-      </div>
-      <div class="content-padding-extra">
-        <form name="signup" ng-if="!certidaoEnviada" novalidate>
-          <label class="item-input input-control">
-            <span class="input-label" ng-if="!date">Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;/</span>
-            <input type="date" ng-model="date">
-          </label>
-          <label class="item-input input-control">
-            <span class="input-label" ng-if="!time">Hora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
-            <input type="time" ng-model="time">
-          </label>
+        <div class="screen-header content-padding-extra">
+            <h1>Certidão e traslado</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="formCertidao" ng-if="!certidaoEnviada" novalidate>
+                <label class="item-input input-control item-select">
+                    <span class="input-label">Ato</span>
+                    <select ng-model="certidao.ato" required>
+                        <option value="Procuração">Procuração</option>
+                        <option value="Escritura">Escritura</option>
+                    </select>
+                </label>
+                <label class="item-input input-control">
+                    <span class="input-label">Livro</span>
+                    <input type="text" ng-model="certidao.livro" required>
+                </label>
+                <label class="item-input input-control">
+                    <span class="input-label">Folha</span>
+                    <input type="text" ng-model="certidao.folha" required>
+                </label>
+                <label class="item-input input-control">
+                    <span class="input-label">Outorgante</span>
+                    <input type="text" ng-model="certidao.outorgante" required>
+                </label>
+                <label class="item-input input-control">
+                    <span class="input-label">Outorgado</span>
+                    <input type="text" ng-model="certidao.outorgado" required>
+                </label>
 
-          <div class="pull-right clearfix">
-            <button ng-click="submit()" class="button button-outline button-light item-icon-right">
-              Enviar
-            </button>
-          </div>
-        </form>
-        <div ng-if="certidaoEnviada">
-          <p>Dados enviados com sucesso.</p>
-          <div class="pull-right clearfix">
-            <button ng-click="goBack()" class="button button-outline button-royal">
-              Cadastrar novo documento
-            </button>
-          </div>
+                <div class="pull-right clearfix">
+                    <button ng-click="submit()" ng-disabled="formCertidao.$invalid"
+                            class="button button-outline button-light item-icon-right"
+                            ng-class="{'button-royal': certidao.ato && certidao.livro && certidao.folha && certidao.outorgante && certidao.outorgado}">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+            <div ng-if="certidaoEnviada">
+                <p class="message-success">Dados enviados com sucesso!</p>
+                <div>
+                    O Cartório do {{cartorio.nome}} poderá exigir mais documentos à seu critério e de acordo com a leis vigentes.
+                    <br /><br />
+                    Todos os documentos de bens móveis ou imóveis bem como dos outorgantes deverão ser apresentados em original quando da assinatura.
+                    <br /><br />
+                    Para maiores informações ligue: {{cartorio.telefone}}.
+                    <br /><br />
+                </div>
+                <div class="pull-right clearfix">
+                    <button ng-click="goBack()" class="button button-outline button-royal">
+                        Solicitar novo documento
+                    </button>
+                </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>
