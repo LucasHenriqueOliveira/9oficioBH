@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.utils.masks'])
 
-    .run(function($ionicPlatform, $rootScope, Auth, $state) {
+    .run(function($ionicPlatform, $rootScope, Auth, $state, $location) {
         $ionicPlatform.registerBackButtonAction(function (event) {
             if($state.current.name == "home" || $state.current.name == "splash"){
                 navigator.app.exitApp();
@@ -17,7 +17,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
         }, 100);
 
         $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
-            if (isEmpty(Auth.isAuthenticated()) && isEmpty(Auth.isAuthorized())) {
+            if (isEmpty(Auth.isAuthenticated()) && isEmpty(Auth.isAuthorized()) && $location.path() != '/signup') {
                 $state.go('login');
             }
         });
