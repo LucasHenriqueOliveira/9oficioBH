@@ -22,3 +22,13 @@ function isEmpty(obj) {
 
     return true;
 }
+
+function convertDateBr(date) {
+    var dArr = date.split("-");
+    return dArr[2]+ "/" +dArr[1]+ "/" +dArr[0];
+}
+
+function formatDate(date) {
+    var dArr = date.split("/");
+    return dArr[2]+ "-" +dArr[1]+ "-" +dArr[0];
+}

@@ -1,0 +1,48 @@
+<ion-view view-title="">
+    <ion-content has-bouncing="false" class="has-header">
+        <div class="screen-header content-padding-extra">
+            <h1>Testamento</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="formTestamento" ng-if="!agendamentoConfirmado" novalidate class="scheduling-form">
+                <label class="item-input input-control item-select">
+                    <span class="input-label">Data</span>
+                    <select ng-model="testamento.data" ng-change="getTime(testamento.data)" ng-options="data for data in datas" required>
+                    </select>
+                </label>
+                <label class="item-input input-control item-select">
+                    <span class="input-label">Hora</span>
+                    <select ng-model="testamento.hora" ng-options="hora for hora in horas" required>
+                    </select>
+                </label>
+
+                <div class="pull-right clearfix">
+                    <button ng-click="submit(testamento.data, testamento.hora)"
+                            class="button button-outline button-light"
+                            ng-class="{'button-royal': testamento.data && testamento.hora}"
+                            ng-disabled="formTestamento.$invalid">
+                        Agendar
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="break"></div>
+            </form>
+            <div ng-if="agendamentoConfirmado">
+                <p class="message-success">O seu agendamento foi confirmado. Por favor, compareça na data e hora agendada.</p>
+                <div>
+                    O Cartório do {{cartorio.nome}} poderá exigir mais documentos à seu critério e de acordo com a leis vigentes.
+                    <br /><br />
+                    Todos os documentos de bens móveis ou imóveis bem como dos outorgantes deverão ser apresentados em original quando da assinatura.
+                    <br /><br />
+                    Para maiores informações ligue: {{cartorio.telefone}}.
+                    <br /><br />
+                </div>
+                <div class="pull-right clearfix">
+                    <button ng-click="goBack()" class="button button-outline button-royal">
+                        Agendar novo testamento
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -17,7 +17,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
         }, 100);
 
         $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
-            if (isEmpty(Auth.isAuthenticated()) && isEmpty(Auth.isAuthorized()) && $location.path() != '/signup') {
+            if (isEmpty(Auth.isAuthenticated()) && isEmpty(Auth.isAuthorized()) && $location.path() != '/signup' && $location.path() != '/termos') {
                 $state.go('login');
             }
         });
@@ -57,6 +57,14 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 abstract: false,
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl',
+                auth: false
+            })
+
+            .state('termos', {
+                url: '/termos',
+                abstract: false,
+                templateUrl: 'templates/termos.html',
+                controller: 'TermosCtrl',
                 auth: false
             })
 
@@ -118,7 +126,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 url: '/cartorio/testamento',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/agendamento.html',
+                        templateUrl: 'templates/testamento.html',
                         controller: 'TestamentoCtrl'
                     }
                 }
@@ -145,7 +153,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
             })
 
             .state('app.termos', {
-                url: '/cartorio/termos',
+                url: '/calculos/termos',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/termos.html',

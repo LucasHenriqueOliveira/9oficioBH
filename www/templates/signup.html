@@ -6,67 +6,67 @@
     </ion-nav-back-button>
   </ion-nav-bar>
 
-    <ion-content has-bouncing="false">
-      <div class="screen-header content-padding-extra">
-        <h1>Cadastre-se</h1>
-      </div>
-      <div class="content-padding-extra">
-        <form name="formSignUp" role="form" novalidate>
-          <label class="item-input input-control">
-            <input type="text" ng-model="signupData.nome" placeholder="Nome" required>
-          </label>
-          <label class="item-input input-control">
-            <input type="email" ng-model="signupData.email" placeholder="E-mail" required>
-          </label>
-          <label class="item-input input-control">
-            <input type="tel" ng-model="signupData.telefone" placeholder="Telefone" ui-br-phone-number required>
-          </label>
-          <label class="item-input input-control">
-            <input type="tel" ng-model="signupData.cpf" placeholder="CPF" ui-br-cpf-mask required>
-          </label>
-          <div class="row">
-            <div class="col-50 margin-negative-left">
-              <label class="item-input input-control">
-                <input type="password" ng-model="signupData.password" placeholder="Senha" required>
-              </label>
-            </div>
-            <div class="col-50 margin-left">
-              <label class="item-input input-control">
-                <input type="password" ng-model="signupData.confirma_senha" placeholder="Confirmar" required>
-              </label>
-            </div>
+  <ion-content has-bouncing="false">
+    <div class="screen-header content-padding-extra">
+      <h1>Cadastre-se</h1>
+    </div>
+    <div class="content-padding-extra">
+      <form name="formSignUp" role="form" novalidate>
+        <label class="item-input input-control">
+          <input type="text" ng-model="signupData.nome" placeholder="Nome" required>
+        </label>
+        <label class="item-input input-control">
+          <input type="email" ng-model="signupData.email" placeholder="E-mail" required>
+        </label>
+        <label class="item-input input-control">
+          <input type="tel" ng-model="signupData.telefone" placeholder="Telefone" ui-br-phone-number required>
+        </label>
+        <label class="item-input input-control">
+          <input type="tel" ng-model="signupData.cpf" placeholder="CPF" ui-br-cpf-mask required>
+        </label>
+        <div class="row">
+          <div class="col-50 margin-negative-left">
+            <label class="item-input input-control">
+              <input type="password" ng-model="signupData.password" placeholder="Senha" required>
+            </label>
           </div>
+          <div class="col-50 margin-left">
+            <label class="item-input input-control">
+              <input type="password" ng-model="signupData.confirma_senha" placeholder="Confirmar" required>
+            </label>
+          </div>
+        </div>
 
-          <div class="pull-right clearfix">
-            <button class="button button-outline button-light item-icon-right" ng-click="signupCartorio()"
-                    ng-disabled="formSignUp.$invalid"
-                    ng-class="{'button-royal': signupData.nome && signupData.email && signupData.telefone && signupData.cpf && signupData.password && signupData.confirma_senha}">
-              Próximo
-            </button>
-          </div>
-        </form>
-        <div class="row padding-top">
-          <div class="col-33">
-            <hr>
-          </div>
-          <div class="col-33 text-center text-uppercase text-divisor">
-            ou
-          </div>
-          <div class="col-33">
-            <hr>
-          </div>
+        <div class="pull-right clearfix">
+          <button class="button button-outline button-light item-icon-right" ng-click="signupCartorio()"
+                  ng-disabled="formSignUp.$invalid"
+                  ng-class="{'button-royal': signupData.nome && signupData.email && signupData.telefone && signupData.cpf && signupData.password && signupData.confirma_senha}">
+            Próximo
+          </button>
         </div>
-        <div class="social-buttons">
-          <div class="facebook-button text-center">
-            <i class="icon ion-social-facebook"></i> Login com o Facebook
-          </div>
-          <div class="googleplus-button text-center">
-            <i class="icon ion-social-googleplus"></i> Login com o Google
-          </div>
+      </form>
+      <div class="row padding-top">
+        <div class="col-33">
+          <hr>
         </div>
-        <div class="terms text-center">
-          Ao se cadastrar, você concorda com nossos <a href="#/cartorio/termos"><b>termos de uso</b></a> e <a href="#/cartorio/termos"><b>política de privacidade</b></a>.
+        <div class="col-33 text-center text-uppercase text-divisor">
+          ou
+        </div>
+        <div class="col-33">
+          <hr>
         </div>
       </div>
-    </ion-content>
+      <div class="social-buttons">
+        <div class="facebook-button text-center">
+          <i class="icon ion-social-facebook"></i> Login com o Facebook
+        </div>
+        <div class="googleplus-button text-center">
+          <i class="icon ion-social-googleplus"></i> Login com o Google
+        </div>
+      </div>
+      <div class="terms text-center">
+        Ao se cadastrar, você concorda com nossos <a href="#/termos"><b>termos de uso</b></a> e <a href="#/termos"><b>política de privacidade</b></a>.
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

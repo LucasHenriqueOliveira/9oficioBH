@@ -84,6 +84,24 @@
                     });
 
                 return deferred.promise;
+            },
+            getDataTestamento: function() {
+
+                var deferred = $q.defer();
+
+                $http({
+                    method: 'GET',
+                    url: App.api + 'testamento/datas'
+                })
+                    .then(function(response) {
+
+                        deferred.resolve(response.data);
+
+                    }, function(error) {
+                        console.log(error);
+                    });
+
+                return deferred.promise;
             }
         }
     }
