@@ -8,7 +8,7 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
 
     .run(function($ionicPlatform, $rootScope, Auth, $state, $location) {
         $ionicPlatform.registerBackButtonAction(function (event) {
-            if($state.current.name == "home" || $state.current.name == "splash"){
+            if($state.current.name == "home"){
                 navigator.app.exitApp();
             }
             else {
