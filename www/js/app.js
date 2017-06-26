@@ -57,7 +57,8 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 abstract: false,
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl',
-                auth: false
+                auth: false,
+                cache: false
             })
 
             .state('termos', {
@@ -73,7 +74,8 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 abstract: false,
                 templateUrl: 'templates/signup.html',
                 controller: 'CadastrarCtrl',
-                auth: false
+                auth: false,
+                cache: false
             })
 
             .state('app', {

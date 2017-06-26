@@ -16,19 +16,16 @@
         </h1>
       </div>
       <ion-list>
-        <ion-item nav-clear menu-close href="#/app/cartorio">
+        <ion-item nav-clear menu-close ng-click="openShare()">
           Convide seus amigos
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/cartorio">
-          Ajuda e FAQ
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/cartorio/termos">
           Termos e Privacidade
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/cartorio">
+        <ion-item nav-clear menu-close ng-click="openEmail()">
           Entre em contato
         </ion-item>
-        <ion-item nav-clear menu-close href="#/login">
+        <ion-item nav-clear menu-close ng-click="logout()">
           Sair
         </ion-item>
       <ion-list>

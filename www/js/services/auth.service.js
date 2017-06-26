@@ -34,7 +34,6 @@
                     $localStorage.set('token', res.data.token);
 
                     User.getUser(function (res) {
-                        App.clearData();
                         App.user = res.data;
                         $localStorage.setObject('user', App.user);
                         $state.go('app.cartorio');
@@ -83,7 +82,6 @@
                     $localStorage.set('token', res.data.token);
 
                     User.getUser(function (res) {
-                        App.clearData();
                         App.user = res.data;
                         $localStorage.setObject('user', App.user);
                         $state.go('app.cartorio');

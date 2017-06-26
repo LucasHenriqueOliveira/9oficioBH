@@ -5,44 +5,58 @@
         .module('cartorio')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$scope', '$ionicModal', '$timeout', 'myConfig', '$state'];
+    AppCtrl.$inject = ['$scope', 'myConfig', '$state', '$cordovaEmailComposer', '$cordovaToast', 'App', '$cordovaSocialSharing'];
 
-    function AppCtrl($scope, $ionicModal, $timeout, myConfig, $state) {
+    function AppCtrl($scope, myConfig, $state, $cordovaEmailComposer, $cordovaToast, App, $cordovaSocialSharing) {
         $scope.nome = myConfig.nome;
         $scope.cidade = myConfig.cidade;
 
-        // Form data for the login modal
-        $scope.loginData = {};
+        $scope.openEmail = function() {
+            $cordovaEmailComposer.isAvailable(
+                function (isAvailable) {
 
-        // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('templates/login.html', {
-            scope: $scope
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-
-        // Triggered in the login modal to close it
-        $scope.closeLogin = function() {
-            $scope.modal.hide();
+                    if(isAvailable){
+                        $cordovaEmailComposer.open({
+                            to: 'contato@cartorioapp.com',
+                            subject: 'Cartório App',
+                            body: '',
+                            isHtml:  true
+                        });
+                    } else {
+                        $cordovaToast.showWithOptions({
+                            message: 'Não foi detectado nenhum gerenciador de email configurado no dispositivo!',
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFF00',
+                                textSize: 20.5,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                    }
+                }
+            );
         };
 
-        // Open the login modal
-        $scope.login = function() {
-            $scope.modal.show();
+        $scope.openShare = function() {
+            var message = "Conheça o " + $scope.nome + " - Cartório App. O aplicativo que facilita o acesso aos serviços no cartório.";
+            $cordovaSocialSharing
+                .share(message, null, null, 'www.cartorioapp.com')
+                .then(function(result) {
+                    // Success!
+                }, function(err) {
+                    // An error occured. Show a message to the user
+                });
         };
 
         $scope.logout = function() {
-            $state.go('splash');
+            App.clearData();
+            $state.go('login');
         };
 
-        // Perform the login action when the user submits the login form
-        $scope.doLogin = function() {
-
-            // Simulate a login delay. Remove this and replace with your login
-            // code if using a login system
-            $timeout(function() {
-                $scope.closeLogin();
-            }, 1000);
-        };
     }
 })();
