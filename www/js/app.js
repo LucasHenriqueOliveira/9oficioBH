@@ -134,6 +134,16 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 }
             })
 
+            .state('app.termos', {
+                url: '/cartorio/termos',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/termos.html',
+                        controller: 'TermosCtrl'
+                    }
+                }
+            })
+
             .state('app.calculos', {
                 url: '/calculos',
                 views: {
@@ -150,16 +160,6 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                     'menuContent': {
                         templateUrl: 'templates/itbi.html',
                         controller: 'ItbiCtrl'
-                    }
-                }
-            })
-
-            .state('app.termos', {
-                url: '/calculos/termos',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/termos.html',
-                        controller: 'TermosCtrl'
                     }
                 }
             })

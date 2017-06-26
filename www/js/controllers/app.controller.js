@@ -58,5 +58,8 @@
             $state.go('login');
         };
 
+        $scope.openTermos = function() {
+            $state.go('app.termos');
+        };
     }
 })();
