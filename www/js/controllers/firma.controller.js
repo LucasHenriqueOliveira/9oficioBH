@@ -22,8 +22,8 @@
                     styling: {
                         opacity: 0.75,
                         backgroundColor: '#FF0000',
-                        textColor: '#FFFF00',
-                        textSize: 20.5,
+                        textColor: '#FFFFFF',
+                        textSize: 16,
                         cornerRadius: 16,
                         horizontalPadding: 20,
                         verticalPadding: 16
@@ -43,8 +43,8 @@
                     styling: {
                         opacity: 0.75,
                         backgroundColor: '#FF0000',
-                        textColor: '#FFFF00',
-                        textSize: 20.5,
+                        textColor: '#FFFFFF',
+                        textSize: 16,
                         cornerRadius: 16,
                         horizontalPadding: 20,
                         verticalPadding: 16

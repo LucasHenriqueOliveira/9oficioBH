@@ -5,9 +5,9 @@
         .module('cartorio')
         .factory('Auth', Auth);
 
-    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook'];
+    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook', 'Google'];
 
-    function Auth($localStorage, App, $state, User, $log, Facebook) {
+    function Auth($localStorage, App, $state, User, $log, Facebook, Google) {
 
         return {
 
@@ -21,8 +21,8 @@
                             styling: {
                                 opacity: 0.75,
                                 backgroundColor: '#FF0000',
-                                textColor: '#FFFF00',
-                                textSize: 20.5,
+                                textColor: '#FFFFFF',
+                                textSize: 16,
                                 cornerRadius: 16,
                                 horizontalPadding: 20,
                                 verticalPadding: 16
@@ -47,8 +47,8 @@
                             styling: {
                                 opacity: 0.75,
                                 backgroundColor: '#FF0000',
-                                textColor: '#FFFF00',
-                                textSize: 20.5,
+                                textColor: '#FFFFFF',
+                                textSize: 16,
                                 cornerRadius: 16,
                                 horizontalPadding: 20,
                                 verticalPadding: 16
@@ -65,8 +65,72 @@
                         styling: {
                             opacity: 0.75,
                             backgroundColor: '#FF0000',
-                            textColor: '#FFFF00',
-                            textSize: 20.5,
+                            textColor: '#FFFFFF',
+                            textSize: 16,
+                            cornerRadius: 16,
+                            horizontalPadding: 20,
+                            verticalPadding: 16
+                        }
+                    });
+                });
+            },
+
+            signupSocial: function(signupData) {
+                User.signupSocial(signupData, function (res) {
+                    if (res.error) {
+                        $cordovaToast.showWithOptions({
+                            message: res.message,
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFFFF',
+                                textSize: 16,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                        return;
+                    }
+                    App.token = res.data.token;
+                    $localStorage.set('token', res.data.token);
+
+                    User.getUser(function (res) {
+                        App.user = res.data;
+                        $localStorage.setObject('user', App.user);
+                        $state.go('app.cartorio');
+
+                    }, function (error) {
+                        // error
+                        $cordovaToast.showWithOptions({
+                            message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
+                            duration: 'short',
+                            position: 'center',
+                            styling: {
+                                opacity: 0.75,
+                                backgroundColor: '#FF0000',
+                                textColor: '#FFFFFF',
+                                textSize: 16,
+                                cornerRadius: 16,
+                                horizontalPadding: 20,
+                                verticalPadding: 16
+                            }
+                        });
+                    });
+
+                }, function (error) {
+                    $log.error(error);
+                    $cordovaToast.showWithOptions({
+                        message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
+                        duration: 'short',
+                        position: 'center',
+                        styling: {
+                            opacity: 0.75,
+                            backgroundColor: '#FF0000',
+                            textColor: '#FFFFFF',
+                            textSize: 16,
                             cornerRadius: 16,
                             horizontalPadding: 20,
                             verticalPadding: 16
@@ -95,8 +159,8 @@
                             styling: {
                                 opacity: 0.75,
                                 backgroundColor: '#FF0000',
-                                textColor: '#FFFF00',
-                                textSize: 20.5,
+                                textColor: '#FFFFFF',
+                                textSize: 16,
                                 cornerRadius: 16,
                                 horizontalPadding: 20,
                                 verticalPadding: 16
@@ -112,8 +176,8 @@
                         styling: {
                             opacity: 0.75,
                             backgroundColor: '#FF0000',
-                            textColor: '#FFFF00',
-                            textSize: 20.5,
+                            textColor: '#FFFFFF',
+                            textSize: 16,
                             cornerRadius: 16,
                             horizontalPadding: 20,
                             verticalPadding: 16
@@ -123,6 +187,8 @@
             },
             signupFacebook: function () {Facebook.auth();},
             loginFacebook: function () {Facebook.auth();},
+            signupGoogle: function () {Google.auth();},
+            loginGoogle: function () {Google.auth();},
             isAuthenticated: function(){
                 if (!App.user && isEmpty($localStorage.getObject('user'))) {
                     User.getUser(function (res) {

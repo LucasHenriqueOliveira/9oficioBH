@@ -1,0 +1,35 @@
+<ion-view view-title="">
+
+    <ion-nav-bar class="bar-royal">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c" style="font-size: 24px; margin-left: 25px;"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content has-bouncing="false">
+        <div class="screen-header content-padding-extra">
+            <h1>Cadastre-se</h1>
+        </div>
+        <div class="content-padding-extra">
+            <form name="formPreSignup" novalidate>
+                <label class="item-input input-control">
+                    <input type="text" ng-model="signupData.nome" placeholder="Nome" required>
+                </label>
+                <label class="item-input input-control">
+                    <input type="tel" ng-model="signupData.telefone" placeholder="Telefone" ui-br-phone-number required>
+                </label>
+                <label class="item-input input-control">
+                    <input type="tel" ng-model="signupData.cpf" placeholder="CPF" ui-br-cpf-mask required>
+                </label>
+
+                <div class="pull-right clearfix">
+                    <button ng-click="submit()" ng-disabled="formPreSignup.$invalid"
+                            class="button button-outline button-light item-icon-right"
+                            ng-class="{'button-royal': signupData.nome && signupData.telefone && signupData.cpf}">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

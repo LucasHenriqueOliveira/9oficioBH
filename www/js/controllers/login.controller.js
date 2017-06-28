@@ -20,6 +20,10 @@
             Auth.loginFacebook();
         };
 
+        $scope.loginGoogle = function () {
+            Auth.loginGoogle();
+        };
+
         // $ionicModal.fromTemplateUrl('forgot-password.html', {
         //   scope: $scope,
         //   animation: 'slide-in-up'

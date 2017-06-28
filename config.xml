@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.9oficioBH" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>9º Ofício de Notas</name>
+<widget id="com.9oficioBH" version="1.0.5" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>9OficioBH</name>
     <description>Aplicativo do 9º Ofício de Notas em BH</description>
     <author email="contato@cartorioapp.com" href="http://cartorioapp.com/">Cartório App</author>
     <content src="index.html" />
@@ -20,8 +20,9 @@
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashScreen" value="none" />
+    <preference name="SplashScreenDelay" value="0" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -86,4 +87,12 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-x-toast" spec="~2.6.0" />
+    <plugin name="ionic-plugin-deploy" spec="~0.6.7" />
+    <plugin name="cordova-plugin-facebook4" spec="~1.9.1">
+        <variable name="APP_ID" value="310624626048839" />
+        <variable name="APP_NAME" value="Cartório App" />
+    </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="~5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.875143511685-1ingn7t01rbhgrum1drp35mh7p9hm80s" />
+    </plugin>
 </widget>

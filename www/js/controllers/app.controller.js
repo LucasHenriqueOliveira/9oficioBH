@@ -12,11 +12,11 @@
         $scope.cidade = myConfig.cidade;
 
         $scope.openEmail = function() {
-            $cordovaEmailComposer.isAvailable(
+            cordova.plugins.email.isAvailable(
                 function (isAvailable) {
 
                     if(isAvailable){
-                        $cordovaEmailComposer.open({
+                        cordova.plugins.email.open({
                             to: 'contato@cartorioapp.com',
                             subject: 'Cartório App',
                             body: '',
@@ -30,8 +30,8 @@
                             styling: {
                                 opacity: 0.75,
                                 backgroundColor: '#FF0000',
-                                textColor: '#FFFF00',
-                                textSize: 20.5,
+                                textColor: '#FFFFFF',
+                                textSize: 16,
                                 cornerRadius: 16,
                                 horizontalPadding: 20,
                                 verticalPadding: 16

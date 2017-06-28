@@ -1,57 +1,52 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('cartorio')
-    .controller('HomeCtrl', HomeCtrl);
+    angular
+        .module('cartorio')
+        .controller('HomeCtrl', HomeCtrl);
 
-  HomeCtrl.$inject = ['$state', '$scope', 'myConfig', '$log', 'App'];
+    HomeCtrl.$inject = ['$state', '$scope', 'myConfig', '$log', 'App', '$ionicDeploy', '$timeout'];
 
-  function HomeCtrl($state, $scope, myConfig, $log, App) {
-    $scope.nome = myConfig.nome;
-    $scope.cidade = myConfig.cidade;
+    function HomeCtrl($state, $scope, myConfig, $log, App, $ionicDeploy, $timeout) {
+        $scope.nome = myConfig.nome;
+        $scope.cidade = myConfig.cidade;
 
-    $scope.message = 'Verificando atualização';
+        $scope.message = 'Verificando atualização';
 
-    if (!!window.cordova && window.Ionic && (ionic.Platform.isIOS() || ionic.Platform.isAndroid())) {
-      var deploy = new Ionic.Deploy();
-      deploy.setChannel('production');
-      $log.debug('Ionic Deploy: starting init');
+        $state.go('login');
+        return;
 
-      deploy.check().then(function (hasUpdate) {
-        $log.debug('Ionic Deploy: Update available: ' + hasUpdate);
+        if (!!window.cordova && window.Ionic && (ionic.Platform.isIOS() || ionic.Platform.isAndroid())) {
+            $ionicDeploy.channel = 'production';
+            $log.debug('Ionic Deploy: starting init');
 
-        if (hasUpdate) {
-          $timeout(function() {
-            deploy.update().then(function (res) {
-              $log.debug('Ionic Deploy: Update Success! ', res);
+            $ionicDeploy.check().then(function (hasUpdate) {
+                $log.debug('Ionic Deploy: Update available: ' + hasUpdate);
 
-            }, function (err) {
-              $log.debug('Ionic Deploy: Update error! ', err);
-
-            }, function (prog) {
-              $log.debug('Ionic Deploy: Progress... ', prog);
-
+                if (hasUpdate) {
+                    $timeout(function() {
+                        $ionicDeploy.download().then(function() {
+                            return $ionicDeploy.extract();
+                        });
+                    }, 4000);
+                } else {
+                    setTimeout(function(){
+                        if (!App.user) {
+                            $state.go('login');
+                        } else {
+                            $state.go('app.cartorio');
+                        }
+                    }, 500);
+                }
             });
-          }, 4000);
         } else {
-          setTimeout(function(){
-            if (!App.user) {
-              $state.go('login');
-            } else {
-              $state.go('app.cartorio');
-            }
-          }, 500);
+            setTimeout(function(){
+                if (!App.user) {
+                    $state.go('login');
+                } else {
+                    $state.go('app.cartorio');
+                }
+            }, 500);
         }
-      });
-    } else {
-      setTimeout(function(){
-        if (!App.user) {
-          $state.go('login');
-        } else {
-          $state.go('app.cartorio');
-        }
-      }, 500);
     }
-  }
 })();

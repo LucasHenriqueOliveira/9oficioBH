@@ -28,6 +28,16 @@
         'method': 'POST',
         params: {}
       },
+      signupSocial: {
+        url: App.api + 'signup-social',
+        'method': 'POST',
+        params: {}
+      },
+      checkSocial: {
+        url: App.api + 'check-social',
+        'method': 'POST',
+        params: {}
+      },
       forgot: {
         url: App.api + 'forgot',
         'method': 'POST',

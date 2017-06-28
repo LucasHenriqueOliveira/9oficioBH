@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.utils.masks'])
+angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.utils.masks'])
 
     .run(function($ionicPlatform, $rootScope, Auth, $state, $location) {
         $ionicPlatform.registerBackButtonAction(function (event) {
@@ -15,12 +15,6 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 navigator.app.backHistory();
             }
         }, 100);
-
-        $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
-            if (isEmpty(Auth.isAuthenticated()) && isEmpty(Auth.isAuthorized()) && $location.path() != '/signup' && $location.path() != '/termos') {
-                $state.go('login');
-            }
-        });
 
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -37,7 +31,13 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
         });
     })
 
-    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+    .config(function($ionicCloudProvider, $stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+
+        $ionicCloudProvider.init({
+            "core": {
+                "app_id": "6c934356"
+            }
+        });
 
         $httpProvider.interceptors.push('TokenInterceptor');
         $ionicConfigProvider.backButton.previousTitleText(false);
@@ -67,6 +67,15 @@ angular.module('cartorio', ['ionic', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.
                 templateUrl: 'templates/termos.html',
                 controller: 'TermosCtrl',
                 auth: false
+            })
+
+            .state('pre-signup', {
+                url: '/pre-signup',
+                abstract: false,
+                templateUrl: 'templates/pre-signup.html',
+                controller: 'PreSignupCtrl',
+                auth: false,
+                cache: false
             })
 
             .state('signup', {
