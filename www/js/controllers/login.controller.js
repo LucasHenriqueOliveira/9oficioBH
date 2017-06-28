@@ -5,9 +5,9 @@
         .module('cartorio')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', 'Auth', '$ionicModal', 'User', '$ionicPopup', '$state'];
+    LoginCtrl.$inject = ['$scope', 'Auth'];
 
-    function LoginCtrl($scope, Auth, $ionicModal, User, $ionicPopup, $state) {
+    function LoginCtrl($scope, Auth) {
 
         $scope.loginData = {};
         $scope.forgot = {};
@@ -23,47 +23,5 @@
         $scope.loginGoogle = function () {
             Auth.loginGoogle();
         };
-
-        // $ionicModal.fromTemplateUrl('forgot-password.html', {
-        //   scope: $scope,
-        //   animation: 'slide-in-up'
-        // }).then(function(modal) {
-        //   $scope.modal = modal;
-        // });
-
-        //$scope.openModal = function() {
-        //    $scope.modal.show();
-        //};
-        //
-        //$scope.closeModal = function() {
-        //    $scope.modal.hide();
-        //};
-        //
-        //// Cleanup the modal when we're done with it!
-        //$scope.$on('$destroy', function() {
-        //    $scope.modal.remove();
-        //});
-
-        //// Execute action on hide modal
-        //$scope.$on('modal.hidden', function() {
-        //    // Execute action
-        //});
-        //
-        //// Execute action on remove modal
-        //$scope.$on('modal.removed', function() {
-        //    // Execute action
-        //});
-
-        //$scope.forgotPassword = function(email) {
-        //    User.forgot({email: email}, function (res) {
-        //        if (!res.error) {
-        //            $ionicPopup.alert({
-        //                title: 'Check your email',
-        //                template: res.message
-        //            });
-        //        }
-        //        $scope.closeModal();
-        //    }, error);
-        //};
     }
 })();

@@ -5,9 +5,9 @@
         .module('cartorio')
         .controller('TestamentoCtrl', TestamentoCtrl);
 
-    TestamentoCtrl.$inject = ['$scope', 'App', '$ionicPopup', '$cordovaCamera', 'DataService', 'myConfig', 'Testamento', '$localStorage'];
+    TestamentoCtrl.$inject = ['$scope', 'App', 'DataService', 'myConfig', 'Testamento', '$localStorage', '$ionicLoading'];
 
-    function TestamentoCtrl($scope, App, $ionicPopup, $cordovaCamera, DataService, myConfig, Testamento, $localStorage) {
+    function TestamentoCtrl($scope, App, DataService, myConfig, Testamento, $localStorage, $ionicLoading) {
         $scope.casamento = true;
         $scope.agendamentoConfirmado = false;
         $scope.cartorio = {
@@ -20,6 +20,9 @@
         $scope.opcoesAgendamento = {};
 
         var getDatas = function() {
+            $ionicLoading.show({
+                template: 'Aguarde...'
+            });
             DataService.getDataTestamento().then(function(res) {
                 $scope.opcoesAgendamento = res;
 
@@ -27,8 +30,10 @@
                     var date = convertDateBr(key);
                     $scope.datas.push(date);
                 }
+                $ionicLoading.hide();
 
             }, function (error) {
+                $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'Erro ao buscar as datas disponíveis para agendamento!',
                     duration: 'short',
@@ -53,6 +58,9 @@
         };
 
         $scope.submit = function(data, hora) {
+            $ionicLoading.show({
+                template: 'Aguarde...'
+            });
             var user = App.user || $localStorage.getObject('user');
 
             $scope.testamento = {
@@ -80,8 +88,10 @@
                 } else {
                     $scope.agendamentoConfirmado = true;
                 }
+                $ionicLoading.hide();
 
             }, function (error) {
+                $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'Erro ao agendar o testamento!',
                     duration: 'short',
@@ -106,22 +116,6 @@
             $scope.opcoesAgendamento = {};
             $scope.testamento = {};
             getDatas();
-        };
-
-        $scope.sendFile = function() {
-            var options = {
-                quality : 75
-            };
-
-            $cordovaCamera.getPicture(options).then(function(imageData) {
-                var imageEncode = "data:image/jpeg;base64," + imageData;
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Foto',
-                    template: 'Enviada com sucesso.'
-                });
-            }, function(err) {
-                // error
-            });
         };
     }
 })();

@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-cordova build android --release
+ionic cordova build android --release
 rm -f platforms/android/build/outputs/apk/9oficioBH.apk
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 \
 -keystore resources/cert/android/9oficioBH.keystore \

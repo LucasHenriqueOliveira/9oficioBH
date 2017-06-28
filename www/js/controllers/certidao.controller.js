@@ -5,9 +5,9 @@
         .module('cartorio')
         .controller('CertidaoCtrl', CertidaoCtrl);
 
-    CertidaoCtrl.$inject = ['$scope', '$state', 'Certidao', 'App', '$cordovaToast', '$localStorage', 'myConfig'];
+    CertidaoCtrl.$inject = ['$scope', '$state', 'Certidao', 'App', '$cordovaToast', '$localStorage', 'myConfig', '$ionicLoading'];
 
-    function CertidaoCtrl($scope, $state, Certidao, App, $cordovaToast, $localStorage, myConfig) {
+    function CertidaoCtrl($scope, $state, Certidao, App, $cordovaToast, $localStorage, myConfig, $ionicLoading) {
         $scope.certidao = {};
         $scope.certidaoEnviada = false;
         $scope.cartorio = {
@@ -17,11 +17,17 @@
         };
 
         $scope.submit = function() {
+            $ionicLoading.show({
+                template: 'Aguarde...'
+            });
+
             var user = App.user || $localStorage.getObject('user');
             $scope.certidao.user_id = user.id;
             Certidao.save($scope.certidao, function (res) {
                 $scope.certidaoEnviada = true;
+                $ionicLoading.hide();
             }, function (error) {
+                $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'Erro ao solicitar a certidão!',
                     duration: 'short',

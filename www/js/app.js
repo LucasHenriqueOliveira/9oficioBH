@@ -17,6 +17,11 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
         }, 100);
 
         $ionicPlatform.ready(function() {
+            if (navigator && navigator.splashscreen) {
+                setTimeout(function() {
+                    navigator.splashscreen.hide();
+                }, 100);
+            }
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -153,16 +158,6 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                 }
             })
 
-            .state('app.calculos', {
-                url: '/calculos',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/calculos.html',
-                        controller: 'CalculosCtrl'
-                    }
-                }
-            })
-
             .state('app.itbi', {
                 url: '/calculos/itbi',
                 views: {
@@ -171,17 +166,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         controller: 'ItbiCtrl'
                     }
                 }
-            })
-
-            .state('app.historico', {
-                url: '/historico',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/historico.html',
-                        controller: 'HistoricoCtrl'
-                    }
-                }
             });
+
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/home');
     });

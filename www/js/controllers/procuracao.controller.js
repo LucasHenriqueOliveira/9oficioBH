@@ -5,9 +5,9 @@
         .module('cartorio')
         .controller('ProcuracaoCtrl', ProcuracaoCtrl);
 
-    ProcuracaoCtrl.$inject = ['$scope', '$state', 'myConfig', 'DataService', '$cordovaToast', 'Procuracao', '$ionicPopup', '$cordovaCamera'];
+    ProcuracaoCtrl.$inject = ['$scope', '$state', 'myConfig', 'DataService', '$cordovaToast', 'Procuracao', '$ionicPopup', '$cordovaCamera', '$ionicLoading'];
 
-    function ProcuracaoCtrl($scope, $state, myConfig, DataService, $cordovaToast, Procuracao, $ionicPopup, $cordovaCamera) {
+    function ProcuracaoCtrl($scope, $state, myConfig, DataService, $cordovaToast, Procuracao, $ionicPopup, $cordovaCamera, $ionicLoading) {
         $scope.casamento = false;
         $scope.agendamentoConfirmado = false;
         $scope.cartorio = {
@@ -57,9 +57,14 @@
         };
 
         $scope.submit = function() {
+            $ionicLoading.show({
+                template: 'Aguarde...'
+            });
             Procuracao.save($scope.procuracao, function (res) {
                 $scope.agendamentoConfirmado = true;
+                $ionicLoading.hide();
             }, function (error) {
+                $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'Erro ao solicitar a procuração!',
                     duration: 'short',

@@ -13,9 +13,6 @@
 
         $scope.message = 'Verificando atualização';
 
-        $state.go('login');
-        return;
-
         if (!!window.cordova && window.Ionic && (ionic.Platform.isIOS() || ionic.Platform.isAndroid())) {
             $ionicDeploy.channel = 'production';
             $log.debug('Ionic Deploy: starting init');
@@ -26,7 +23,17 @@
                 if (hasUpdate) {
                     $timeout(function() {
                         $ionicDeploy.download().then(function() {
-                            return $ionicDeploy.extract();
+                            $ionicDeploy.extract().then(function() {
+                                // Load the updated version
+                                $ionicDeploy.load();
+                            }, function(error) {
+                                console.log('Ionic Deploy Extract Error.');
+                                console.log(error);
+                                // Error extracting
+                            }, function(progress) {
+                                // Do something with the zip extraction progress
+                                console.log(progress);
+                            });
                         });
                     }, 4000);
                 } else {

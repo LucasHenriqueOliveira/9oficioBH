@@ -5,13 +5,17 @@
         .module('cartorio')
         .factory('Auth', Auth);
 
-    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook', 'Google'];
+    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook', 'Google', '$ionicLoading'];
 
-    function Auth($localStorage, App, $state, User, $log, Facebook, Google) {
+    function Auth($localStorage, App, $state, User, $log, Facebook, Google, $ionicLoading) {
 
         return {
 
             signup: function (signupData) {
+                $ionicLoading.show({
+                    template: 'Aguarde...'
+                });
+
                 User.signup(signupData, function (res) {
                     if (res.error) {
                         $cordovaToast.showWithOptions({
@@ -36,10 +40,12 @@
                     User.getUser(function (res) {
                         App.user = res.data;
                         $localStorage.setObject('user', App.user);
+                        $ionicLoading.hide();
                         $state.go('app.cartorio');
 
                     }, function (error) {
                         // error
+                        $ionicLoading.hide();
                         $cordovaToast.showWithOptions({
                             message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
                             duration: 'short',
@@ -58,6 +64,7 @@
 
                 }, function (error) {
                     $log.error(error);
+                    $ionicLoading.hide();
                     $cordovaToast.showWithOptions({
                         message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
                         duration: 'short',
@@ -76,6 +83,10 @@
             },
 
             signupSocial: function(signupData) {
+                $ionicLoading.show({
+                    template: 'Aguarde...'
+                });
+
                 User.signupSocial(signupData, function (res) {
                     if (res.error) {
                         $cordovaToast.showWithOptions({
@@ -100,10 +111,12 @@
                     User.getUser(function (res) {
                         App.user = res.data;
                         $localStorage.setObject('user', App.user);
+                        $ionicLoading.hide();
                         $state.go('app.cartorio');
 
                     }, function (error) {
                         // error
+                        $ionicLoading.hide();
                         $cordovaToast.showWithOptions({
                             message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
                             duration: 'short',
@@ -122,6 +135,7 @@
 
                 }, function (error) {
                     $log.error(error);
+                    $ionicLoading.hide();
                     $cordovaToast.showWithOptions({
                         message: 'Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente!',
                         duration: 'short',
@@ -140,6 +154,10 @@
             },
 
             login: function (email, password) {
+                $ionicLoading.show({
+                    template: 'Aguarde...'
+                });
+
                 User.login({email: email, password: password}, function (res) {
                     App.clearData();
                     App.token = res.data.token;
@@ -148,10 +166,12 @@
                     User.getUser(function (res) {
                         App.user = res.data;
                         $localStorage.setObject('user', App.user);
+                        $ionicLoading.hide();
                         $state.go('app.cartorio');
 
                     }, function (error) {
                         // error
+                        $ionicLoading.hide();
                         $cordovaToast.showWithOptions({
                             message: 'Usuário não encontrado!',
                             duration: 'short',
@@ -169,6 +189,7 @@
                     });
                 }, function (error) {
                     $log.error(error);
+                    $ionicLoading.hide();
                     $cordovaToast.showWithOptions({
                         message: 'Usuário não encontrado!',
                         duration: 'short',
