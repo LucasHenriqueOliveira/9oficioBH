@@ -20,9 +20,14 @@
             telefone: myConfig.telefone
         };
 
+        $ionicLoading.show({
+            template: 'Aguarde...'
+        });
         DataService.tiposProcuracao().then(function(res) {
             $scope.tipos_procuracao = res;
+            $ionicLoading.hide();
         }, function (error) {
+            $ionicLoading.hide();
             $cordovaToast.showWithOptions({
                 message: 'Erro ao buscar os tipos de procuração!',
                 duration: 'short',
@@ -40,12 +45,18 @@
         });
 
         $scope.getDocumentos = function(tipo) {
+            $ionicLoading.show({
+                template: 'Aguarde...'
+            });
+
             DataService.getDocumentos({id: tipo.tipo_procuracao_id}).then(function(res) {
                 $scope.documentos = res;
+                $ionicLoading.hide();
 
                 var element = angular.element(document.querySelectorAll('#button-send'));
                 element.addClass("button-royal");
             }, function (error) {
+                $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'Erro ao buscar os documentos do tipo de procuração!',
                     duration: 'short',
@@ -68,7 +79,6 @@
         };
 
         $scope.getFile = function (file) {
-
             if(file.nome_campo) {
                 $scope.file.nome = file.nome_campo;
                 File.readAsDataUrl(file, $scope)
@@ -92,7 +102,6 @@
         };
 
         $scope.submit = function() {
-
             if ($scope.documentos.length != Object.keys($scope.files).length) {
                 $cordovaToast.showWithOptions({
                     message: 'Por favor, envie todos os documentos!',
