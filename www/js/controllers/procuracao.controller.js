@@ -5,13 +5,14 @@
         .module('cartorio')
         .controller('ProcuracaoCtrl', ProcuracaoCtrl);
 
-    ProcuracaoCtrl.$inject = ['$scope', '$state', 'myConfig', 'DataService', '$cordovaToast', 'Procuracao', '$ionicPopup', '$cordovaCamera', '$ionicLoading', 'File', '$filter', '$localStorage', 'App'];
+    ProcuracaoCtrl.$inject = ['$scope', '$state', 'myConfig', 'DataService', '$cordovaToast', 'Procuracao', '$ionicLoading', 'File', '$filter', '$localStorage', 'App', '$location', '$ionicScrollDelegate'];
 
-    function ProcuracaoCtrl($scope, $state, myConfig, DataService, $cordovaToast, Procuracao, $ionicPopup, $cordovaCamera, $ionicLoading, File, $filter, $localStorage, App) {
+    function ProcuracaoCtrl($scope, $state, myConfig, DataService, $cordovaToast, Procuracao, $ionicLoading, File, $filter, $localStorage, App, $location, $ionicScrollDelegate) {
         $scope.casamento = false;
         $scope.agendamentoConfirmado = false;
         $scope.file = {};
         $scope.procuracao = {};
+        $scope.documentos = {};
         $scope.files = [];
         $scope.cartorio = {
             nome: myConfig.nome,
@@ -91,6 +92,25 @@
         };
 
         $scope.submit = function() {
+
+            if ($scope.documentos.length != Object.keys($scope.files).length) {
+                $cordovaToast.showWithOptions({
+                    message: 'Por favor, envie todos os documentos!',
+                    duration: 'short',
+                    position: 'center',
+                    styling: {
+                        opacity: 0.75,
+                        backgroundColor: '#FF0000',
+                        textColor: '#FFFFFF',
+                        textSize: 16,
+                        cornerRadius: 16,
+                        horizontalPadding: 20,
+                        verticalPadding: 16
+                    }
+                });
+                return false;
+            }
+
             $ionicLoading.show({
                 template: 'Aguarde...'
             });
@@ -118,7 +138,8 @@
                         }
                     });
                 } else {
-                    window.scrollTo(0, 0);
+                    $location.hash('procuracao');
+                    $ionicScrollDelegate.anchorScroll(true);
                     $scope.agendamentoConfirmado = true;
                     $ionicLoading.hide();
                 }
@@ -138,23 +159,6 @@
                         verticalPadding: 16
                     }
                 });
-            });
-        };
-
-        $scope.sendFile = function() {
-            var options = {
-                quality : 75
-            };
-
-            $cordovaCamera.getPicture(options).then(function(imageData) {
-                var imageEncode = "data:image/jpeg;base64," + imageData;
-
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Foto',
-                    template: 'Enviada com sucesso.'
-                });
-            }, function(err) {
-                // error
             });
         };
     }
