@@ -113,3 +113,7 @@ input {
     padding-right: 50px !important;
     padding-top: 10px !important;
 }
+input[type=file] {
+    height: 1px;
+    width: 1px;
+}

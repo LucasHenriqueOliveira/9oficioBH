@@ -31,7 +31,8 @@
                     <!--</div>-->
                 <!--</div>-->
 
-                <div class="upload empty clearfix" ng-repeat="documento in documentos" ng-click="sendFile()">
+                <div class="upload empty clearfix" ng-class="documento.nome_campo" ng-file-upload ng-repeat="documento in documentos">
+                    <input type="file" id="{{documento.nome_campo}}" fileread="onFileSelect($files)">
                     <div class="icon pull-left">
                         <i class="ion-social-buffer"></i>
                     </div>
@@ -42,7 +43,7 @@
                 </div>
 
                 <div class="pull-right clearfix">
-                    <button ng-click="submit()" class="button button-outline button-light">
+                    <button ng-click="submit()" id="button-send" class="button button-outline button-light">
                         Enviar
                     </button>
                 </div>

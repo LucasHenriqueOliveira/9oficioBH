@@ -116,7 +116,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/certidao.html',
                         controller: 'CertidaoCtrl'
                     }
-                }
+                },
+                cache: false
             })
             .state('app.firma', {
                 url: '/cartorio/firma',
@@ -125,7 +126,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/firma.html',
                         controller: 'FirmaCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             .state('app.procuracao', {
@@ -135,7 +137,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/procuracao.html',
                         controller: 'ProcuracaoCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             .state('app.testamento', {
@@ -145,7 +148,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/testamento.html',
                         controller: 'TestamentoCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             .state('app.termos', {
@@ -155,7 +159,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/termos.html',
                         controller: 'TermosCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             .state('app.itbi', {
@@ -165,7 +170,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/itbi.html',
                         controller: 'ItbiCtrl'
                     }
-                }
+                },
+                cache: false
             });
 
         // if none of the above states are matched, use this as the fallback

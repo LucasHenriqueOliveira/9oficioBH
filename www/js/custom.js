@@ -32,3 +32,12 @@ function formatDate(date) {
     var dArr = date.split("/");
     return dArr[2]+ "-" +dArr[1]+ "-" +dArr[0];
 }
+
+function arrayToObj(arr) {
+    var obj = {};
+
+    for(var key in arr){
+        obj[key] = arr[key];
+    }
+    return obj;
+}
