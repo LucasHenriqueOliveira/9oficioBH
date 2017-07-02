@@ -1,0 +1,23 @@
+<ion-view view-title="">
+    <ion-content has-bouncing="false" class="has-header">
+        <div class="screen-header content-padding-extra">
+            <h1>Contato</h1>
+        </div>
+        <div class="content-padding-extra">
+            <div>
+                Endereço do {{nome}}:
+                <br /><br />
+                {{endereco}}<br/>
+                {{cidade}}
+                <br /><br />
+                Para maiores informações ligue: {{telefone}}.
+                <br /><br />
+            </div>
+            <div class="pull-right clearfix">
+                <button ng-click="openEmail()" class="button button-outline button-royal">
+                    Envie-nos um email
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

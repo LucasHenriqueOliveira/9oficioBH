@@ -12,7 +12,7 @@
         return {
             request: function (config) {
                 config.headers = config.headers || {};
-                var token = $localStorage.token || App.token;
+                var token = $localStorage.get('token') || App.token;
                 if (token) {
                     config.headers.Authorization = 'Bearer ' + token;
                 }

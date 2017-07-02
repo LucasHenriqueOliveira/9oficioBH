@@ -5,41 +5,14 @@
         .module('cartorio')
         .controller('AppCtrl', AppCtrl);
 
-    AppCtrl.$inject = ['$scope', 'myConfig', '$state', '$cordovaEmailComposer', '$cordovaToast', 'App', '$cordovaSocialSharing'];
+    AppCtrl.$inject = ['$scope', 'myConfig', '$state', 'App', '$cordovaSocialSharing'];
 
-    function AppCtrl($scope, myConfig, $state, $cordovaEmailComposer, $cordovaToast, App, $cordovaSocialSharing) {
+    function AppCtrl($scope, myConfig, $state, App, $cordovaSocialSharing) {
         $scope.nome = myConfig.nome;
         $scope.cidade = myConfig.cidade;
 
         $scope.openEmail = function() {
-            cordova.plugins.email.isAvailable(
-                function (isAvailable) {
-
-                    if(isAvailable){
-                        cordova.plugins.email.open({
-                            to: 'contato@cartorioapp.com',
-                            subject: 'Cartório App',
-                            body: '',
-                            isHtml:  true
-                        });
-                    } else {
-                        $cordovaToast.showWithOptions({
-                            message: 'Não foi detectado nenhum gerenciador de email configurado no dispositivo!',
-                            duration: 'short',
-                            position: 'center',
-                            styling: {
-                                opacity: 0.75,
-                                backgroundColor: '#FF0000',
-                                textColor: '#FFFFFF',
-                                textSize: 16,
-                                cornerRadius: 16,
-                                horizontalPadding: 20,
-                                verticalPadding: 16
-                            }
-                        });
-                    }
-                }
-            );
+            $state.go('app.contato');
         };
 
         $scope.openShare = function() {

@@ -5,7 +5,7 @@ echo "Deploying version $version\n"
 
 echo "$version" > version.txt
 echo "$version" > www/templates/version.html
-sed -i' ' "s/id=\"com.9oficioBH\" version=\".*\" /id=\"com.9oficioBH\" version=\"$version\" /" config.xml
+sed -i' ' "s/id=\"com.cartorioapp9oficioBH\" version=\".*\" /id=\"com.cartorioapp9oficioBH\" version=\"$version\" /" config.xml
 
 rm -f "config.xml "
 

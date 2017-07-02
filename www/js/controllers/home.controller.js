@@ -5,9 +5,9 @@
         .module('cartorio')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['$state', '$scope', 'myConfig', '$log', 'App', '$ionicDeploy', '$timeout'];
+    HomeCtrl.$inject = ['$state', '$scope', 'myConfig', '$log', 'App', '$ionicDeploy', '$timeout', '$localStorage'];
 
-    function HomeCtrl($state, $scope, myConfig, $log, App, $ionicDeploy, $timeout) {
+    function HomeCtrl($state, $scope, myConfig, $log, App, $ionicDeploy, $timeout, $localStorage) {
         $scope.nome = myConfig.nome;
         $scope.cidade = myConfig.cidade;
 
@@ -38,7 +38,7 @@
                     }, 4000);
                 } else {
                     setTimeout(function(){
-                        if (!App.user) {
+                        if (!App.user && isEmpty($localStorage.getObject('user'))) {
                             $state.go('login');
                         } else {
                             $state.go('app.cartorio');
@@ -48,7 +48,7 @@
             });
         } else {
             setTimeout(function(){
-                if (!App.user) {
+                if (!App.user && isEmpty($localStorage.getObject('user'))) {
                     $state.go('login');
                 } else {
                     $state.go('app.cartorio');

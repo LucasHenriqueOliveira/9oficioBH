@@ -140,6 +140,17 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                 cache: false
             })
 
+            .state('app.contato', {
+                url: '/cartorio/contato',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/contato.html',
+                        controller: 'ContatoCtrl'
+                    }
+                },
+                cache: false
+            })
+
             .state('app.testamento', {
                 url: '/cartorio/testamento',
                 views: {
