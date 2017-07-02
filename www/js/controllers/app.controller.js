@@ -28,6 +28,8 @@
 
         $scope.logout = function() {
             App.clearData();
+            App.user = false;
+            App.token = null;
             $state.go('login');
         };
 
