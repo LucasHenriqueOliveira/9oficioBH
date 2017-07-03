@@ -1,0 +1,23 @@
+$ keytool -genkey -v -keystore resources/cert/android/9oficioBH.keystore -alias com.cartorioapp9oficioBH -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password:  
+What is your first and last name?
+  [Unknown]:  Lucas Oliveira
+What is the name of your organizational unit?
+  [Unknown]:  9 Oficio BH
+What is the name of your organization?
+  [Unknown]:  CartorioApp
+What is the name of your City or Locality?
+  [Unknown]:  Belo Horizonte
+What is the name of your State or Province?
+  [Unknown]:  Minas Gerais
+What is the two-letter country code for this unit?
+  [Unknown]:  BR
+Is CN=Lucas Oliveira, OU=9 Oficio BH, O=CartorioApp, L=Belo Horizonte, ST=Minas Gerais, C=BR correct?
+  [no]:  y
+
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+        for: CN=Lucas Oliveira, OU=9 Oficio BH, O=CartorioApp, L=Belo Horizonte, ST=Minas Gerais, C=BR
+Enter key password for <9oficioBH>
+        (RETURN if same as keystore password):  
+Re-enter new password: 
+[Storing resources/cert/android/9oficioBH.keystore]
