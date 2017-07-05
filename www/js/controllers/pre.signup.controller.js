@@ -10,6 +10,7 @@
     function PreSignupCtrl($scope, User, App, $localStorage, $state, $log, $cordovaToast, $ionicLoading) {
 
         $scope.signupData = App.getCurrentUser();
+        $scope.signupData.cpf = "";
 
         var fbLoginError = function(error){
             App.clearData();

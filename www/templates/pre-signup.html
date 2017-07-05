@@ -19,7 +19,7 @@
                     <input type="tel" ng-model="signupData.telefone" placeholder="Telefone" ui-br-phone-number required>
                 </label>
                 <label class="item-input input-control">
-                    <input type="tel" ng-model="signupData.cpf" placeholder="CPF" ui-br-cpf-mask required>
+                    <input type="tel" ng-model="signupData.cpf" watch-change="change()" placeholder="CPF" ui-br-cpf-mask required>
                 </label>
 
                 <div class="pull-right clearfix">
