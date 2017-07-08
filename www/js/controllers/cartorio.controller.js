@@ -5,9 +5,11 @@
         .module('cartorio')
         .controller('CartorioCtrl', CartorioCtrl);
 
-    CartorioCtrl.$inject = ['$scope', 'App', '$localStorage', '$state', 'DataService'];
+    CartorioCtrl.$inject = ['$scope', 'App', '$localStorage', '$state', 'DataService', 'myConfig'];
 
-    function CartorioCtrl($scope, App, $localStorage, $state, DataService) {
+    function CartorioCtrl($scope, App, $localStorage, $state, DataService, myConfig) {
+        $scope.cidade = myConfig.cidade;
+        $scope.estado = myConfig.estado;
         var user = App.user || $localStorage.getObject('user');
         var res = (user.nome).split(" ");
         $scope.user_nome = res[0];

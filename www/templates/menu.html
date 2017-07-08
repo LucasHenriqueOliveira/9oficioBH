@@ -1,34 +1,37 @@
 <ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-royal">
-      <ion-nav-back-button class="button-clear">
-        <i class="ion-arrow-left-c" style="font-size: 24px; margin-left: 25px;"></i>
-      </ion-nav-back-button>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-royal">
+            <ion-nav-back-button class="button-clear">
+                <i class="ion-arrow-left-c arrow-left"></i>
+            </ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-content>
-      <div class="menu-header">
-        <h1>{{nome}}
-          <small>{{cidade}}</small>
-        </h1>
-      </div>
-      <ion-list>
-        <ion-item nav-clear menu-close ng-click="openShare()">
-          Convide seus amigos
-        </ion-item>
-        <ion-item nav-clear menu-close ng-click="openTermos()">
-          Termos e Privacidade
-        </ion-item>
-        <ion-item nav-clear menu-close ng-click="openEmail()">
-          Entre em contato
-        </ion-item>
-        <ion-item nav-clear menu-close ng-click="logout()">
-          Sair
-        </ion-item>
-      <ion-list>
-    </ion-content>
-  </ion-side-menu>
+    <ion-side-menu side="left">
+        <ion-content>
+            <div class="menu-header">
+                <h1>{{nome}}
+                    <small>{{cidade}}</small>
+                </h1>
+            </div>
+            <ion-list>
+                <ion-item nav-clear menu-close ng-click="openConta()">
+                    Minha Conta
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="openShare()">
+                    Convide seus amigos
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="openTermos()">
+                    Termos e Privacidade
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="openEmail()">
+                    Entre em contato
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="logout()">
+                    Sair
+                </ion-item>
+                <ion-list>
+        </ion-content>
+    </ion-side-menu>
 </ion-side-menus>

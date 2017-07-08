@@ -1,24 +1,25 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('cartorio')
-    .controller('ItbiCtrl', ItbiCtrl);
+    angular
+        .module('cartorio')
+        .controller('ItbiCtrl', ItbiCtrl);
 
-  ItbiCtrl.$inject = ['$scope'];
+    ItbiCtrl.$inject = ['$scope', 'myConfig'];
 
-  function ItbiCtrl($scope) {
-    $scope.pesquisaITBI = false;
-    $scope.itbi = 0;
-    $scope.valor_imovel = '';
+    function ItbiCtrl($scope, myConfig) {
+        $scope.pesquisaITBI = false;
+        $scope.cidade = myConfig.cidade;
+        $scope.itbi = 0;
+        $scope.valor_imovel = '';
 
-    $scope.submit = function(valor) {
-      $scope.pesquisaITBI = true;
-      $scope.itbi = (valor * 3/100).toFixed(2);
-    };
+        $scope.submit = function(valor) {
+            $scope.pesquisaITBI = true;
+            $scope.itbi = (valor * 3/100).toFixed(2);
+        };
 
-    $scope.goBack = function() {
-      $scope.pesquisaITBI = false;
-    };
-  }
+        $scope.goBack = function() {
+            $scope.pesquisaITBI = false;
+        };
+    }
 })();

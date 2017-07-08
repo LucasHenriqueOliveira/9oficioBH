@@ -53,8 +53,17 @@
                     <div class="card calculate">
                         <div class="item item-text-wrap" ng-click="go('app.itbi')">
                             <h3 class="itbi">Cálculo de ITBI</h3>
-                            <h5>Belo Horizonte</h5>
+                            <h5>{{cidade}}</h5>
                             <a ng-click="go('app.itbi')"><span class="icon ion-plus-round"></span>Calcular</a>
+                        </div>
+                    </div>
+                </ks-swiper-slide>
+                <ks-swiper-slide class="swiper-slide">
+                    <div class="card calculate">
+                        <div class="item item-text-wrap" ng-click="go('app.itcd')">
+                            <h3 class="itbi">Cálculo de ITCD</h3>
+                            <h5>{{estado}}</h5>
+                            <a ng-click="go('app.itcd')"><span class="icon ion-plus-round"></span>Calcular</a>
                         </div>
                     </div>
                 </ks-swiper-slide>

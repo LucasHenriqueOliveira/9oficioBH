@@ -5,9 +5,9 @@
         .module('cartorio')
         .factory('Auth', Auth);
 
-    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook', 'Google', '$ionicLoading'];
+    Auth.$inject = ['$localStorage', 'App', '$state', 'User', '$log', 'Facebook', 'Google', '$ionicLoading', '$cordovaToast'];
 
-    function Auth($localStorage, App, $state, User, $log, Facebook, Google, $ionicLoading) {
+    function Auth($localStorage, App, $state, User, $log, Facebook, Google, $ionicLoading, $cordovaToast) {
 
         return {
 

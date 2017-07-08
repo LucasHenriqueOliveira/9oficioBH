@@ -9,7 +9,7 @@
                     <input type="text" placeholder="Nome Completo" ng-model="firma.nome">
                 </label>
                 <label class="item-input input-control">
-                    <input type="text" placeholder="CPF" ng-model="firma.cpf" ui-br-cpf-mask>
+                    <input type="text" placeholder="CPF" ng-model="firma.cpf" ui-br-cpf-mask mask>
                 </label>
 
                 <div class="pull-right clearfix">
@@ -24,6 +24,11 @@
         <div ng-if="pesquisaFirma">
             <div class="content-padding-extra">
                 <p class="message-success">{{message}}</p>
+                <p ng-if="hasFirma" style="text-align: justify">
+                    <i style="font-size: 18px" class="icon ion-information-circled"></i> Se dirija ao {{nome}} na {{endereco}} - {{cidade}} para reconhecer a firma desejada.
+                    O reconhecimento de firma somente será feito após verificado por um de nossos escreventes a
+                    congruência de assinaturas para realizar o ato.
+                </p>
                 <div class="pull-right clearfix">
                     <button ng-click="goBack()" class="button button-outline button-royal">
                         Pesquisar outra firma

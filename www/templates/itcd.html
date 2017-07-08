@@ -1,24 +1,24 @@
 <ion-view view-title="">
     <ion-content has-bouncing="false" class="has-header">
         <div class="screen-header content-padding-extra">
-            <h1>Cálculo de ITBI</h1>
+            <h1>Cálculo de ITCD</h1>
         </div>
         <div class="content-padding-extra">
-            <form name="formItbi" ng-if="!pesquisaITBI" novalidate>
+            <form name="formItcd" ng-if="!pesquisaITCD" novalidate>
                 <label class="item-input input-control">
                     <input ng-model="valor_imovel" type="text" placeholder="Valor Venal do Imóvel" ui-money-mask mask required>
                 </label>
 
                 <div class="pull-right clearfix">
                     <button ng-click="submit(valor_imovel)" class="button button-outline button-light"
-                            ng-disabled="formItbi.$invalid"
+                            ng-disabled="formItcd.$invalid"
                             ng-class="{'button-royal': valor_imovel}">
                         Calcular
                     </button>
                 </div>
             </form>
-            <div ng-if="pesquisaITBI">
-                <p class="message-success">O valor do ITBI é {{itbi | currency}}.</p>
+            <div ng-if="pesquisaITCD">
+                <p class="message-success">O valor do ITCD é {{itcd | currency}}.</p>
                 <div class="pull-right clearfix">
                     <button ng-click="goBack()" class="button button-outline button-royal">
                         Realizar um novo cálculo
@@ -26,9 +26,10 @@
                 </div>
             </div>
             <div class="informacao-calculos">
-                <i style="font-size: 18px" class="icon ion-information-circled"></i> O cálculo de ITBI tem como piso o valor declarado pelo cliente, porém, a Prefeitura Municipal de
-                {{cidade}} poderá rever o valor de acordo com os seus parâmetros legais isentando este aplicativo
-                e esta serventia de qualquer divergência que por ventura venha a existir.
+                <i style="font-size: 18px" class="icon ion-information-circled"></i> O cálculo de ITCD tem como piso o
+                valor declarado pelo cliente, porém, a Secretaria de Estado de Fazenda de {{estado}} poderá,
+                a seu critério, rever o valor de acordo com os seus parâmetros legais isentando este aplicativo e
+                esta serventia de qualquer divergência que por ventura venha a existir.
             </div>
         </div>
     </ion-content>

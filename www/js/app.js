@@ -4,15 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.utils.masks'])
+angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'ngCordova', 'ui.utils.masks', 'idf.br-filters'])
 
     .run(function($ionicPlatform, $rootScope, Auth, $state, $location) {
+
         $ionicPlatform.registerBackButtonAction(function (event) {
-            if($state.current.name == "home"){
+            if ($location.path() === "/home" || $location.path() === "/login") {
                 navigator.app.exitApp();
             }
             else {
-                navigator.app.backHistory();
+                navigator.app.goBack();
             }
         }, 100);
 
@@ -173,12 +174,34 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                 cache: false
             })
 
+            .state('app.conta', {
+                url: '/cartorio/conta',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/conta.html',
+                        controller: 'ContaCtrl'
+                    }
+                },
+                cache: false
+            })
+
             .state('app.itbi', {
                 url: '/calculos/itbi',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/itbi.html',
                         controller: 'ItbiCtrl'
+                    }
+                },
+                cache: false
+            })
+
+            .state('app.itcd', {
+                url: '/calculos/itcd',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/itcd.html',
+                        controller: 'ItcdCtrl'
                     }
                 },
                 cache: false

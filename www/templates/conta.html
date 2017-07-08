@@ -1,0 +1,23 @@
+<ion-view view-title="&nbsp;">
+
+    <ion-nav-bar class="bar-royal">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c arrow-left"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content has-bouncing="false">
+        <div class="screen-header content-padding-extra">
+            <h1>Minha Conta</h1>
+        </div>
+        <div class="content-padding-extra message-success text-center">
+            <span class="icon-person">
+                <i class="icon ion-person"></i>
+            </span><br />
+            <span class="line-height">{{user.nome}}</span><br />
+            <span class="line-height">{{user.email}}</span><br />
+            <span class="line-height">{{user.cpf | brCpf}}</span><br />
+            <span class="line-height">{{user.telefone | brPhoneNumber}}</span><br />
+        </div>
+    </ion-content>
+</ion-view>

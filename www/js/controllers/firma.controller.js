@@ -5,10 +5,13 @@
         .module('cartorio')
         .controller('FirmaCtrl', FirmaCtrl);
 
-    FirmaCtrl.$inject = ['$scope', 'DataService', '$ionicLoading'];
+    FirmaCtrl.$inject = ['$scope', 'DataService', '$ionicLoading', 'myConfig'];
 
-    function FirmaCtrl($scope, DataService, $ionicLoading) {
+    function FirmaCtrl($scope, DataService, $ionicLoading, myConfig) {
         $scope.pesquisaFirma = false;
+        $scope.nome = myConfig.nome;
+        $scope.cidade = myConfig.cidade;
+        $scope.endereco = myConfig.endereco;
         $scope.message = '';
         $scope.firma = {};
 
@@ -39,6 +42,7 @@
             DataService.getFirma($scope.firma).then(function(res) {
                 $scope.pesquisaFirma = true;
                 $scope.message = res.message;
+                $scope.hasFirma = res.hasFirma;
                 $ionicLoading.hide();
             }, function (error) {
                 $ionicLoading.hide();
