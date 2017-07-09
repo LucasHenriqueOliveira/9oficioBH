@@ -52,6 +52,10 @@
     padding-left: 2.2em;
     padding-right: 2.2em;
 }
+.content-padding-extra-small {
+    padding-left: 1em;
+    padding-right: 1em;
+}
 .footer-buttons {
     margin-top: 15em;
 }
@@ -140,8 +144,26 @@ input[type=file] {
     text-align: center;
     margin-bottom: 15px;
 }
-.informacao-calculos{
+.informacao-calculos {
     display: inline-block;
     text-align: justify;
     margin-top: 20px;
+}
+.button-proc {
+    padding: 0 !important;
+    width: 100%;
+    font-size: 12px;
+    line-height: 10px;
+    padding-bottom: 8px !important;
+    border-color: transparent;
+    background-color: #042C41;
+    color: #fff;
+}
+.button-proc i{
+    display: block;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+.larger::before {
+    font-size: 25px !important;
 }
