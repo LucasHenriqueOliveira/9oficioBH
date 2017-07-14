@@ -79,6 +79,9 @@
     max-width: 90%;
     bottom: 10px;
 }
+.item-select-estado-civil select {
+    max-width: 70%;
+}
 .message-success {
     margin: 30px 0 30px 0;
     font-size: 14pt;
@@ -109,6 +112,11 @@ input {
 .input-tipo {
     max-width: 50px !important;
     width: 20% !important;
+}
+.input-tipo-estado-civil {
+    max-width: 100px !important;
+    width: 50% !important;
+    margin-top: -10px !important;
 }
 .tipo-procuracao {
     padding: 0 !important;
@@ -166,4 +174,32 @@ input[type=file] {
 }
 .larger::before {
     font-size: 25px !important;
+}
+.cep {
+    max-width: 125px;
+}
+.input-cep {
+    max-width: 44.5%;
+}
+.button-cep {
+    min-width: 60px;
+    font-size: 10pt;
+    min-height: 30px;
+    padding: 0;
+}
+.button-disabled {
+    opacity: .4;
+}
+.button-add {
+    margin-left: 10px;
+}
+.button-new-light {
+    border-color: #042C41 !important;
+    color: #042C41 !important;
+}
+.margin-top-10-p {
+    margin-top: 10px;
+}
+.margin-top-10-n {
+    margin-top: -10px;
 }

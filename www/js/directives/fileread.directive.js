@@ -14,8 +14,13 @@
 
                 el.bind("change", function(e){
                     $scope.file = (e.srcElement || e.target).files[0];
-                    $scope.file.nome_campo = $scope.documento.nome_campo;
-                    $scope.getFile($scope.file);
+                    $scope.file.nome_campo = $scope.doc.nome_campo;
+                    var occur = ($scope.file.nome_campo).indexOf('outorgante');
+                    if(occur == -1) {
+                        occur = ($scope.file.nome_campo).indexOf('outorgado');
+                    }
+                    var otherDoc = (occur == -1) ? true : false;
+                    $scope.getFile($scope.file, otherDoc);
                 });
 
             }

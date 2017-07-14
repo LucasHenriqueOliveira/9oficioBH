@@ -13,7 +13,7 @@
             restrict: 'A',
             link: function(scope, element, attrs) {
                 element.bind('click', function () {
-                    document.getElementById(scope.documento.nome_campo).click();
+                    document.getElementById(element[0].firstElementChild.id).click();
                 });
             }
         };

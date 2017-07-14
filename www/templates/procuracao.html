@@ -3,23 +3,13 @@
         <div class="screen-header content-padding-extra" id="procuracao">
             <h1>Procuração</h1>
         </div>
-        <div class="content-padding-extra">
+        <div class="content-padding-extra-small">
             <form name="agendamentoForm" ng-if="!agendamentoConfirmado" novalidate class="scheduling-form">
                 <label class="item-input input-control item-select">
                     <span class="input-label input-tipo">Tipo</span>
                     <select class="tipo-procuracao" ng-model="procuracao.tipo" ng-change="getDocumentos(procuracao.tipo)" ng-options="tipo_procuracao.nome_procuracao for tipo_procuracao in tipos_procuracao track by tipo_procuracao.tipo_procuracao_id" required>
                     </select>
                 </label>
-
-                <!--<div class="upload sending clearfix">-->
-                    <!--<div class="icon pull-left">-->
-                        <!--<i class="ion-android-upload"></i>-->
-                    <!--</div>-->
-                    <!--<div class="info pull-left">-->
-                        <!--<span class="title">Identidade</span>-->
-                        <!--<span class="description">Enviando</span>-->
-                    <!--</div>-->
-                <!--</div>-->
 
                 <!--<div class="upload sended clearfix">-->
                     <!--<div class="icon pull-left">-->
@@ -31,22 +21,125 @@
                     <!--</div>-->
                 <!--</div>-->
 
-                <div class="upload empty clearfix" ng-class="documento.nome_campo" ng-file-upload ng-repeat="documento in documentos">
-                    <input type="file" id="{{documento.nome_campo}}" fileread="onFileSelect($files)">
-                    <div class="icon pull-left">
-                        <i class="ion-social-buffer"></i>
-                    </div>
-                    <div class="info pull-left">
-                        <span class="title">{{documento.nome_documento}}</span>
-                        <span class="description">CLIQUE PARA ENVIAR</span>
+                <div class="row margin-top-10-n" id="pessoa">
+                    <div class="col" ng-class="{'col-50': documentos.length == 2, 'col-33': documentos.length > 2}" ng-repeat="(key, documento) in documentos">
+                        <button class="button button-proc" ng-class="{'button-disabled': key != selectedOpcao}" ng-click="selectOpcao(key, documento.documentos)">
+                            <i class="icon larger {{documento.icone}}"></i>{{$index + 1}}. {{key}}
+                        </button>
                     </div>
                 </div>
 
-                <div class="pull-right clearfix">
-                    <button ng-click="submit()" id="button-send" class="button button-outline button-light">
+                <div ng-show="docs.length">
+                    <div class="margin-top-10-p" ng-if="!procuracao[selectedOpcao].length || showNewOpcao(selectedOpcao)">
+                        <div ng-if="selectedOpcao == 'Outorgante' || selectedOpcao == 'Outorgado'">
+                            <label class="item-input input-control">
+                                <span class="input-label">Nome</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].nome" required>
+                            </label>
+                            <label class="item-input input-control item-select item-select-estado-civil">
+                                <span class="input-label input-tipo-estado-civil">Estado Civil</span>
+                                <select ng-model="pessoa[selectedOpcao].estado_civil" required>
+                                    <option value="Solteiro">Solteiro</option>
+                                    <option value="Casado">Casado</option>
+                                    <option value="Separado">Separado</option>
+                                    <option value="Divorciado">Divorciado</option>
+                                    <option value="Viúvo">Viúvo</option>
+                                </select>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Nacionalidade</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].nacionalidade" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Profissão</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].profissao" required>
+                            </label>
+                            <div class="item-input input-control">
+                                <span class="input-label cep">CEP</span>
+                                <input type="text" class="input-cep" ng-model="pessoa[selectedOpcao].endereco.cep" ui-br-cep-mask mask required>
+                                <button ng-click="buscarCEP(pessoa[selectedOpcao].endereco.cep, selectedOpcao)" class="button button-outline button-light button-cep"
+                                        ng-class="{'button-royal': pessoa[selectedOpcao].endereco.cep}">
+                                    Buscar
+                                </button>
+                            </div>
+                            <label class="item-input input-control">
+                                <span class="input-label">Logradouro</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.logradouro" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Número</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.numero" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Complemento</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.complemento" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Bairro</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.bairro" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Cidade</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.localidade" required>
+                            </label>
+                            <label class="item-input input-control">
+                                <span class="input-label">Estado</span>
+                                <input type="text" ng-model="pessoa[selectedOpcao].endereco.uf" required>
+                            </label>
+                        </div>
+
+                        <div class="upload empty clearfix" ng-class="doc.nome_campo" ng-file-upload ng-repeat="doc in docs">
+                            <input type="file" id="{{'pessoa.'+ selectedOpcao +'.'+ doc.nome_campo}}" fileread="onFileSelect($files)">
+                            <div class="icon pull-left">
+                                <i class="ion-social-buffer"></i>
+                            </div>
+                            <div class="info pull-left">
+                                <span class="title">{{doc.nome_documento}}</span>
+                                <span class="description">CLIQUE PARA ENVIAR</span>
+                            </div>
+                        </div>
+
+                        <div class="pull-right clearfix button-add" ng-if="selectedOpcao == 'Outorgante' || selectedOpcao == 'Outorgado'">
+                            <button ng-click="addPessoa(pessoa[selectedOpcao], selectedOpcao)"
+                                    class="button button-outline button-light"
+                                    ng-class="{'button-royal': pessoa[selectedOpcao].nome && pessoa[selectedOpcao].estado_civil && pessoa[selectedOpcao].nacionalidade && pessoa[selectedOpcao].profissao
+                                && pessoa[selectedOpcao].endereco.cep && pessoa[selectedOpcao].endereco.logradouro && pessoa[selectedOpcao].endereco.numero
+                                && pessoa[selectedOpcao].endereco.bairro && pessoa[selectedOpcao].endereco.localidade && pessoa[selectedOpcao].endereco.uf}">
+                                Incluir {{selectedOpcao}}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div ng-if="procuracao[selectedOpcao].length && !showNewOpcao(selectedOpcao)" class="margin-top-10-p">
+                        <div class="upload sending clearfix" ng-repeat="pessoa in procuracao[selectedOpcao]">
+                            <div class="icon pull-left">
+                                <i class="ion-person"></i>
+                            </div>
+                            <div class="info pull-left">
+                                <span class="title">{{pessoa.nome}}</span>
+                                <span class="description">{{selectedOpcao}}</span>
+                            </div>
+                            <div class="pull-right margin-top-10-p" ng-click="removePessoa(pessoa, procuracao[selectedOpcao], selectedOpcao)">
+                                <span class="title"><i class="ion-minus-circled"></i> Excluir</span>
+                            </div>
+                        </div>
+
+                        <div class="pull-right clearfix button-add">
+                            <button ng-click="newPessoa(selectedOpcao)"
+                                    class="button button-outline button-light button-new-light">
+                                Incluir outro {{selectedOpcao}}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pull-right clearfix" ng-if="procuracao.Outorgante.length && procuracao.Outorgado.length">
+                    <button ng-click="submit()" class="button button-outline button-light button-royal">
                         Enviar
                     </button>
                 </div>
+
                 <div class="clearfix"></div>
                 <div class="break"></div>
             </form>

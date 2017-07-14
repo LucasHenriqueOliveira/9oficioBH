@@ -102,6 +102,24 @@
                     });
 
                 return deferred.promise;
+            },
+            getCEP: function(cep) {
+
+                var deferred = $q.defer();
+
+                $http({
+                    method: 'GET',
+                    url: 'https://viacep.com.br/ws/' + cep + '/json/'
+                })
+                    .then(function(response) {
+
+                        deferred.resolve(response.data);
+
+                    }, function(error) {
+                        console.log(error);
+                    });
+
+                return deferred.promise;
             }
         }
     }
