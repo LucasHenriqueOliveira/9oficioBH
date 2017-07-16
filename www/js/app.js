@@ -106,7 +106,8 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                         templateUrl: 'templates/cartorio.html',
                         controller: 'CartorioCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             .state('app.certidao', {

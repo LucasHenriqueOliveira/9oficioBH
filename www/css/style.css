@@ -165,7 +165,7 @@ input[type=file] {
     padding-bottom: 8px !important;
     border-color: transparent;
     background-color: #042C41;
-    color: #fff;
+    color: #fff !important;
 }
 .button-proc i{
     display: block;

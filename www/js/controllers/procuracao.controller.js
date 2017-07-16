@@ -186,7 +186,7 @@
                     .then(function (result) {
                         $scope.file.source = result;
                         if(otherDoc) {
-                            $scope.procuracao.OutrosDocs[$scope.file.nome] = $scope.file.source;
+                            $scope.procuracao.OutrosDocs.push({name: $scope.file.nome, file: $scope.file.source});
                         }
                         var element = angular.element(document.querySelectorAll('.'+$scope.file.nome));
                         element.removeClass("empty");
