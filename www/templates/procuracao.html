@@ -131,10 +131,9 @@
                             </button>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="pull-right clearfix" ng-if="procuracao.Outorgante.length && procuracao.Outorgado.length">
+                <div class="pull-right clearfix" ng-if="canSend()">
                     <button ng-click="submit()" class="button button-outline button-light button-royal">
                         Enviar
                     </button>

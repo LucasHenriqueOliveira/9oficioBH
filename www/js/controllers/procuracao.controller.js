@@ -187,6 +187,8 @@
                         $scope.file.source = result;
                         if(otherDoc) {
                             $scope.procuracao.OutrosDocs.push({name: $scope.file.nome, file: $scope.file.source});
+                        } else {
+                            $scope.files[$scope.file.nome] = $scope.file.source;
                         }
                         var element = angular.element(document.querySelectorAll('.'+$scope.file.nome));
                         element.removeClass("empty");
@@ -201,6 +203,14 @@
                         var dataFormatada = $filter('date')(data, 'dd/MM/yyyy HH:mm');
                         element.html('Última modificação: ' + dataFormatada);
                     });
+            }
+        };
+
+        $scope.canSend = function() {
+            if($scope.documentos && Object.keys($scope.documentos).length == 3) {
+                return $scope.procuracao.Outorgante.length && $scope.procuracao.Outorgado.length && $scope.procuracao.OutrosDocs.length;
+            } else {
+                return $scope.procuracao.Outorgante.length && $scope.procuracao.Outorgado.length;
             }
         };
 
