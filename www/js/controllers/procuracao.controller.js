@@ -300,7 +300,7 @@
                 $ionicLoading.hide();
                 $cordovaToast.showWithOptions({
                     message: 'A sua solicitação está sendo processada! Você receberá um email com informações do pedido.',
-                    duration: 'short',
+                    duration: 3500,
                     position: 'center',
                     styling: {
                         opacity: 0.75,
