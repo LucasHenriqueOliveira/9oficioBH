@@ -1,57 +1,60 @@
 <ion-view view-title="Login" hide-nav-bar="true">
-  <ion-content>
-    <div class="login-header content-padding-extra">
-      <h1>9º Ofício de Notas
-        <small>Belo Horizonte</small>
-      </h1>
-    </div>
+    <ion-content>
+        <div class="login-header content-padding-extra">
+            <h1>{{cartorio.nome}}
+                <small>{{cartorio.cidade}}</small>
+            </h1>
+        </div>
 
-    <div class="content-padding-extra">
-      <form name="formLogin" novalidate>
-        <label class="item-input input-control">
-          <input type="email" ng-model="loginData.email" placeholder="Seu e-mail" required>
-        </label>
-        <label class="item-input input-control">
-          <input type="password" ng-model="loginData.password" placeholder="Sua senha" required>
-        </label>
+        <div class="content-padding-extra">
+            <form name="formLogin" novalidate>
+                <label class="item-input input-control">
+                    <input type="email" ng-model="loginData.email" placeholder="Seu e-mail" required>
+                </label>
+                <label class="item-input input-control">
+                    <input type="password" ng-model="loginData.password" placeholder="Sua senha" required>
+                </label>
 
-        <div class="pull-right clearfix">
-          <button class="button button-outline button-light item-icon-right"
-                  ng-disabled="formLogin.$invalid"
-                  ng-class="{'button-royal': loginData.email && loginData.password}"
-                  ng-click="loginCartorio()">
-            Entrar
-          </button>
+                <div class="col-67 text-12 text-center text-light padding-top padding-bottom absolute">
+                    <a ng-click="esqueceuSenha()"> Esqueceu a senha?</a>
+                </div>
+                <div class="pull-right clearfix">
+                    <button class="button button-outline button-light item-icon-right"
+                            ng-disabled="formLogin.$invalid"
+                            ng-class="{'button-royal': loginData.email && loginData.password}"
+                            ng-click="loginCartorio()">
+                        Entrar
+                    </button>
+                </div>
+            </form>
+            <div class="row padding-top">
+                <div class="col-33">
+                    <hr>
+                </div>
+                <div class="col-33 text-center text-uppercase text-divisor">
+                    ou
+                </div>
+                <div class="col-33">
+                    <hr>
+                </div>
+            </div>
+            <div class="social-buttons">
+                <div class="facebook-button text-center" ng-click="loginFacebook()">
+                    <i class="icon ion-social-facebook"></i> Login com o Facebook
+                </div>
+                <div class="googleplus-button text-center" ng-click="loginGoogle()">
+                    <i class="icon ion-social-googleplus"></i> Login com o Google
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-67 text-12 text-center text-light border-div padding-top padding-bottom">
+                    Ainda não se cadastrou?
+                </div>
+                <div class="col-33 text-12 text-right padding-top padding-bottom">
+                    <a href="#/signup">Cadastre-se</a>
+                </div>
+            </div>
         </div>
-      </form>
-      <div class="row padding-top">
-        <div class="col-33">
-          <hr>
-        </div>
-        <div class="col-33 text-center text-uppercase text-divisor">
-          ou
-        </div>
-        <div class="col-33">
-          <hr>
-        </div>
-      </div>
-      <div class="social-buttons">
-        <div class="facebook-button text-center" ng-click="loginFacebook()">
-          <i class="icon ion-social-facebook"></i> Login com o Facebook
-        </div>
-        <div class="googleplus-button text-center" ng-click="loginGoogle()">
-          <i class="icon ion-social-googleplus"></i> Login com o Google
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-67 text-12 text-center text-light border-div padding-top padding-bottom">
-          Ainda não se cadastrou?
-        </div>
-        <div class="col-33 text-12 text-right padding-top padding-bottom">
-          <a href="#/signup">Cadastre-se</a>
-        </div>
-      </div>
-    </div>
 
-  </ion-content>
+    </ion-content>
 </ion-view>

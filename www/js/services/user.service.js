@@ -38,13 +38,13 @@
         'method': 'POST',
         params: {}
       },
-      forgot: {
-        url: App.api + 'forgot',
+      changePassword: {
+        url: App.api + 'troca-senha',
         'method': 'POST',
         params: {}
       },
       reset: {
-        url: App.api + 'reset',
+        url: App.api + 'usuario/reset',
         'method': 'POST',
         params: {}
       }

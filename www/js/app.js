@@ -33,6 +33,12 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
+                if(Auth.isLoginDefault() && Auth.isUserApp()) {
+                    $state.go("reset-password");
+                }
+            });
         });
     })
 
@@ -62,6 +68,24 @@ angular.module('cartorio', ['ionic', 'ionic.cloud', 'ngResource', 'ksSwiper', 'n
                 abstract: false,
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl',
+                auth: false,
+                cache: false
+            })
+
+            .state('forgot-password', {
+                url: '/forgot-password',
+                abstract: false,
+                templateUrl: 'templates/forgot-password.html',
+                controller: 'ForgotPasswordCtrl',
+                auth: false,
+                cache: false
+            })
+
+            .state('reset-password', {
+                url: '/reset-password',
+                abstract: false,
+                templateUrl: 'templates/reset-password.html',
+                controller: 'ResetPasswordCtrl',
                 auth: false,
                 cache: false
             })

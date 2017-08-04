@@ -224,6 +224,14 @@
                     App.token = $localStorage.get('token');
                 }
                 return App.token;
+            },
+            isLoginDefault : function() {
+                var user = App.user || $localStorage.getObject('user');
+                return user.login_default ? true : false;
+            },
+            isUserApp : function() {
+                var user = App.user || $localStorage.getObject('user');
+                return user.app ? true : false;
             }
         };
     }

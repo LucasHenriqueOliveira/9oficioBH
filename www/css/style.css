@@ -203,3 +203,7 @@ input[type=file] {
 .margin-top-10-n {
     margin-top: -10px;
 }
+.absolute{
+    position: absolute;
+    padding-top: 12px !important;
+}

@@ -25,8 +25,8 @@
         }
 
         return {
-            api: 'http://9oficiobh.cartorioapp.com/api/',
-            //api: 'http://localhost:8000/api/', // lucas' computer
+            //api: 'http://9oficiobh.cartorioapp.com/api/',
+            api: 'http://localhost:8000/api/', // lucas' computer
             user: false,
             token: null,
             clearData: clearData,
