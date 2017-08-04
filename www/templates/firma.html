@@ -6,10 +6,21 @@
         <div class="content-padding-extra">
             <form name="formFirma" ng-if="!pesquisaFirma" novalidate>
                 <label class="item-input input-control">
-                    <input type="text" placeholder="Nome Completo" ng-model="firma.nome">
-                </label>
-                <label class="item-input input-control">
                     <input type="text" placeholder="CPF" ng-model="firma.cpf" ui-br-cpf-mask mask>
+                </label>
+                <div class="row padding-top">
+                    <div class="col-33">
+
+                    </div>
+                    <div class="col-33 text-center text-uppercase text-divisor gray">
+                        ou
+                    </div>
+                    <div class="col-33">
+
+                    </div>
+                </div>
+                <label class="item-input input-control">
+                    <input type="text" placeholder="Nome Completo" ng-model="firma.nome">
                 </label>
 
                 <div class="pull-right clearfix">

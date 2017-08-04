@@ -207,3 +207,6 @@ input[type=file] {
     position: absolute;
     padding-top: 12px !important;
 }
+.gray{
+    color: #ddd;
+}

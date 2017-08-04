@@ -16,10 +16,13 @@
         $scope.firma = {};
 
         $scope.submit = function() {
+            if($scope.firma.cpf && !verificaCPF($scope.firma.cpf)) {
+                $scope.firma.cpf = '';
+            }
 
             if(!$scope.firma.nome && !$scope.firma.cpf) {
                 $cordovaToast.showWithOptions({
-                    message: 'Informe o Nome ou CPF!',
+                    message: 'Informe o CPF ou Nome!',
                     duration: 'short',
                     position: 'center',
                     styling: {
