@@ -1,8 +1,14 @@
 {
   "name": "9oficioBH",
-  "app_id": "6c934356",
+  "app_id": "463dc478",
   "type": "ionic1",
   "watchPatterns": [
-    "scss/**/*"
-  ]
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
