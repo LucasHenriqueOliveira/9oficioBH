@@ -11,4 +11,4 @@ rm -f "config.xml "
 
 ionic cordova build ios
 #ionic build android
-ionic upload --note "$version"
+#ionic upload --note "$version"
