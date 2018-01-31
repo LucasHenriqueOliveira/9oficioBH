@@ -179,29 +179,57 @@
             $state.go('app.cartorio');
         };
 
+
+        function imageToDataUri(img, width, height, type) {
+
+            // create an off-screen canvas
+            var canvas = document.createElement('canvas'),
+                ctx = canvas.getContext('2d');
+
+            // set its dimension to target size
+            canvas.width = width;
+            canvas.height = height;
+
+            // draw source image into the off-screen canvas:
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // encode image to data-uri with base64 version of compressed image
+            return canvas.toDataURL(type, 0.3);
+        }
+
         $scope.getFile = function (file, otherDoc) {
             if(file.nome_campo) {
                 $scope.file.nome = file.nome_campo;
+                var type = file.type;
+
                 File.readAsDataUrl(file, $scope)
                     .then(function (result) {
-                        $scope.file.source = result;
-                        if(otherDoc) {
-                            $scope.procuracao.OutrosDocs.push({name: $scope.file.nome, file: $scope.file.source});
-                        } else {
-                            $scope.files[$scope.file.nome] = $scope.file.source;
-                        }
-                        var element = angular.element(document.querySelectorAll('.'+$scope.file.nome));
-                        element.removeClass("empty");
-                        element.addClass("sended");
 
-                        var element = angular.element(document.querySelectorAll('.'+$scope.file.nome+' i'));
-                        element.removeClass("ion-social-buffer");
-                        element.addClass("ion-document");
+                        var img = new Image;
 
-                        var element = angular.element(document.querySelectorAll('.'+$scope.file.nome+' .description'));
-                        var data = new Date();
-                        var dataFormatada = $filter('date')(data, 'dd/MM/yyyy HH:mm');
-                        element.html('Última modificação: ' + dataFormatada);
+                        img.onload = function () {
+                            var newDataUri = imageToDataUri(this, 800, 600, type);
+
+                            if(otherDoc) {
+                                $scope.procuracao.OutrosDocs.push({name: $scope.file.nome, file: newDataUri});
+                            } else {
+                                $scope.files[$scope.file.nome] = newDataUri;
+                            }
+                            var element = angular.element(document.querySelectorAll('.'+$scope.file.nome));
+                            element.removeClass("empty");
+                            element.addClass("sended");
+
+                            var element = angular.element(document.querySelectorAll('.'+$scope.file.nome+' i'));
+                            element.removeClass("ion-social-buffer");
+                            element.addClass("ion-document");
+
+                            var element = angular.element(document.querySelectorAll('.'+$scope.file.nome+' .description'));
+                            var data = new Date();
+                            var dataFormatada = $filter('date')(data, 'dd/MM/yyyy HH:mm');
+                            element.html('Última modificação: ' + dataFormatada);
+                        };
+                        img.src = result;
+
                     });
             }
         };
