@@ -6,15 +6,15 @@
         "@ionic-native/google-plus": "^4.5.3",
         "@ionic/cloud": "^0.16.0",
         "bluebird": "^3.5.0",
-        "cordova-android": "git+https://github.com/apache/cordova-android.git",
+        "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-add-swift-support": "^1.7.1",
         "cordova-plugin-camera": "^2.4.1",
-        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-compat": "^1.2.0",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-email-composer": "~0.8.7",
-        "cordova-plugin-facebook4": "^1.9.1",
+        "cordova-plugin-facebook4": "^1.7.4",
         "cordova-plugin-googleplus": "^5.2.1",
         "cordova-plugin-ionic": "^2.0.4",
         "cordova-plugin-splashscreen": "^4.0.3",
@@ -63,10 +63,6 @@
             "cordova-plugin-email-composer": {},
             "cordova-plugin-x-socialsharing": {},
             "cordova-plugin-x-toast": {},
-            "cordova-plugin-facebook4": {
-                "APP_ID": "310624626048839",
-                "APP_NAME": "9º Ofício BH"
-            },
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.875143511685-8u7fgr8bsj5u3kc932971fp4nudfgm43"
             },
@@ -76,6 +72,11 @@
                 "UPDATE_METHOD": "auto",
                 "UPDATE_API": "https://api.ionicjs.com",
                 "MAX_STORE": "2"
+            },
+            "cordova-plugin-compat": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "310624626048839",
+                "APP_NAME": "9º Ofício BH"
             }
         },
         "platforms": [
