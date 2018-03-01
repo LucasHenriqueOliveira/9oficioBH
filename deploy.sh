@@ -9,6 +9,6 @@ sed -i' ' "s/id=\"com.cartorioapp9oficioBH\" version=\".*\" /id=\"com.cartorioap
 
 rm -f "config.xml "
 
-ionic cordova build ios
+#ionic cordova build ios
 #ionic build android
 #ionic upload --note "$version"
